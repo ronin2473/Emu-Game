@@ -11,11 +11,6 @@ public class Enemy_movement : MonoBehaviour
     public float speed = 1f;
     
 
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -28,14 +23,6 @@ public class Enemy_movement : MonoBehaviour
         }
         
         
-        
-        //Rigidbody rigi = this.GetComponent<Rigidbody>();
-        //rigi.velocity = Vector3.zero;
-        //Vector3 direction = Getposition();
-        //direction.x = Math.Sign(direction.x - this.transform.position.x);
-        //direction.y = Math.Sign(direction.y - this.transform.position.y);
-        //direction.z = Math.Sign(direction.z - this.transform.position.z);
-        //rigi.AddForce(direction*speed);
         
     }
 
@@ -52,7 +39,7 @@ public class Enemy_movement : MonoBehaviour
         direction.x = Math.Sign(direction.x - enemy.transform.position.x);
         direction.y = Math.Sign(direction.y - enemy.transform.position.y);
         direction.z = Math.Sign(direction.z - enemy.transform.position.z);
-        rigi.AddForce(direction * speed);
+        rigi.AddForce(direction * speed * Time.deltaTime);
 
     }
 }
