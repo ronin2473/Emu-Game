@@ -36,9 +36,12 @@ public class Enemy_movement : MonoBehaviour
         Rigidbody rigi = enemy.GetComponent<Rigidbody>();
         rigi.velocity = Vector3.zero;
         Vector3 direction = Getposition();
-        direction.x = Math.Sign(direction.x - enemy.transform.position.x);
-        direction.y = Math.Sign(direction.y - enemy.transform.position.y);
-        direction.z = Math.Sign(direction.z - enemy.transform.position.z);
+        direction.x = direction.x - enemy.transform.position.x;
+        direction.y = direction.y - enemy.transform.position.y;
+        direction.z = direction.z - enemy.transform.position.z;
+        Debug.Log(direction);
+        direction.Normalize();
+        Debug.Log(direction);
         rigi.AddForce(direction * speed * Time.deltaTime);
 
     }
