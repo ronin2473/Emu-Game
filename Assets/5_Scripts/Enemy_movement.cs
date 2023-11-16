@@ -39,9 +39,7 @@ public class Enemy_movement : MonoBehaviour
         direction.x = direction.x - enemy.transform.position.x;
         direction.y = direction.y - enemy.transform.position.y;
         direction.z = direction.z - enemy.transform.position.z;
-        Debug.Log(direction);
         direction.Normalize();
-        Debug.Log(direction);
         rigi.AddForce(direction * speed * Time.deltaTime);
 
     }

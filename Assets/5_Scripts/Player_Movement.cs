@@ -17,6 +17,8 @@ public class Player_Movement : MonoBehaviour
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
+        if (moveHorizontal < 0) this.transform.localScale = new Vector3(-1, 1, 1);
+        if (moveHorizontal > 0) this.transform.localScale = new Vector3(1, 1, 1);
 
         rb2d.velocity = new Vector2(moveHorizontal * speed, moveVertical * speed);
 
