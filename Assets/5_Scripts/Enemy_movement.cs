@@ -33,7 +33,7 @@ public class Enemy_movement : MonoBehaviour
 
     public void MoveEnemy(GameObject enemy)
     {
-        Rigidbody rigi = enemy.GetComponent<Rigidbody>();
+        Rigidbody2D rigi = enemy.GetComponent<Rigidbody2D>();
         rigi.velocity = Vector3.zero;
         Vector3 direction = Getposition();
         direction.x = direction.x - enemy.transform.position.x;
