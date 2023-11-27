@@ -41,6 +41,14 @@ public class Enemy_movement : MonoBehaviour
         direction.z = direction.z - enemy.transform.position.z;
         direction.Normalize();
         rigi.AddForce(direction * speed * Time.deltaTime);
+        if (direction.x < 0)
+        {
+            enemy.transform.localScale = new Vector3(-Math.Abs(enemy.transform.localScale.x), enemy.transform.localScale.y, enemy.transform.localScale.z);
+        }
+        if (direction.x > 0)
+        {
+            enemy.transform.localScale = new Vector3(Math.Abs(enemy.transform.localScale.x), enemy.transform.localScale.y, enemy.transform.localScale.z);
+        }
 
     }
 }
