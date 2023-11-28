@@ -7,8 +7,8 @@ using UnityEngine.UI;
 
 public class CharController : MonoBehaviour
 {
-    [SerializeField] private Sprite[] chars;
-    public int choosenChar = 0;
+    [SerializeField] public Sprite[] chars;
+    public static int choosenChar = 0;
     void Start()
     {
         Image selectedImage = GetComponent<Image>();
@@ -33,6 +33,8 @@ public class CharController : MonoBehaviour
             choosenChar = chars.Length - 1;
         }
         GetComponent<Image>().sprite = chars[choosenChar];
-        Debug.Log(choosenChar);
+
     }
+
+    
 }
