@@ -214,7 +214,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -400,7 +400,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Back
+  m_text: 'BACK
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8ca3b49bd529e8d4fa36fd7bac1a8728, type: 2}
   m_sharedMaterial: {fileID: -6381784628996513820, guid: 8ca3b49bd529e8d4fa36fd7bac1a8728, type: 2}
@@ -433,7 +435,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1068,9 +1070,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Confirm
-
-'
+  m_text: CONFIRM
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8ca3b49bd529e8d4fa36fd7bac1a8728, type: 2}
   m_sharedMaterial: {fileID: -6381784628996513820, guid: 8ca3b49bd529e8d4fa36fd7bac1a8728, type: 2}
@@ -1103,7 +1103,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1204,7 +1204,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 88383df1aa3a1c741b56ec8b952d6fff, type: 3}
   - {fileID: 21300000, guid: 4bd71ec811e787540919012207a0406b, type: 3}
   - {fileID: 21300000, guid: 38a3280e35c90484383a1dc851885bc5, type: 3}
-  choosenChar: 0
 --- !u!114 &1525427026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1441,7 +1440,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
