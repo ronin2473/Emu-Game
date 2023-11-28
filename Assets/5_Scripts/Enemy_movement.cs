@@ -33,7 +33,7 @@ public class Enemy_movement : MonoBehaviour
 
     public void MoveEnemy(GameObject enemy)
     {
-        Rigidbody2D rigi = enemy.GetComponent<Rigidbody2D>();
+        Rigidbody rigi = enemy.GetComponent<Rigidbody>();
         rigi.velocity = Vector3.zero;
         Vector3 direction = Getposition();
         direction.x = direction.x - enemy.transform.position.x;
@@ -41,6 +41,14 @@ public class Enemy_movement : MonoBehaviour
         direction.z = direction.z - enemy.transform.position.z;
         direction.Normalize();
         rigi.AddForce(direction * speed * Time.deltaTime);
+        if (direction.x < 0)
+        {
+            enemy.transform.localScale = new Vector3(-Math.Abs(enemy.transform.localScale.x), enemy.transform.localScale.y, enemy.transform.localScale.z);
+        }
+        if (direction.x > 0)
+        {
+            enemy.transform.localScale = new Vector3(Math.Abs(enemy.transform.localScale.x), enemy.transform.localScale.y, enemy.transform.localScale.z);
+        }
 
     }
 }
