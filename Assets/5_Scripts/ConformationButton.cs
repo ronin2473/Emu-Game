@@ -9,5 +9,6 @@ public class ConformationButton : MonoBehaviour
     public void ChangeScene()
     {
         SceneManager.LoadScene(gameScene);
+
     }
 }
