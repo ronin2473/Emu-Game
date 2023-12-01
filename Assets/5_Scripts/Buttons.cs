@@ -20,4 +20,10 @@ public class Buttons : MonoBehaviour
     {
         SceneManager.LoadScene(sceneToSwapTo);
     }
+
+    public void GameCredits()
+    {
+        
+        //SceneManager.LoadScene("Credits");
+    }
 }
