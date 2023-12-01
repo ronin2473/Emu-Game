@@ -7,9 +7,11 @@ public class Gamemenu : MonoBehaviour
 {
     [SerializeField] GameObject button1;
     [SerializeField] GameObject button2;
-
+    [SerializeField] Texture2D customCursor;
+    
     private void Start()
     {
+        Cursor.SetCursor(customCursor, Vector2.zero, CursorMode.Auto);
         button1.SetActive(false);
         button2.SetActive(false);
     }

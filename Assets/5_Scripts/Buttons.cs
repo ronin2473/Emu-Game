@@ -7,6 +7,11 @@ using UnityEngine.SceneManagement;
 public class Buttons : MonoBehaviour
 {
     [SerializeField] private string sceneToSwapTo;
+    [SerializeField] Texture2D customCursor;
+    private void Start()
+    {
+        Cursor.SetCursor(customCursor, Vector2.zero, CursorMode.Auto);
+    }
     public void GameQuit()
     {
         Application.Quit();
