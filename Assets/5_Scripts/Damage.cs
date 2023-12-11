@@ -9,6 +9,10 @@ public class Damage : MonoBehaviour
     private float time;
     [SerializeField] private float waittill;
 
+    private void Start()
+    {
+        time = waittill;
+    }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
