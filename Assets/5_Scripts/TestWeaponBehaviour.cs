@@ -30,6 +30,8 @@ public class TestWeaponBehaviour : MonoBehaviour
     void SwingWeapon()
     {
         weapon.SetActive(true);
+
+
  
         StartCoroutine(EndOfSwing(0.5f));
         
