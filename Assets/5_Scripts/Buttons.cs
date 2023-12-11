@@ -31,4 +31,9 @@ public class Buttons : MonoBehaviour
         
         //SceneManager.LoadScene("Credits");
     }
+
+    public void GameHistory()
+    {
+
+    }
 }
