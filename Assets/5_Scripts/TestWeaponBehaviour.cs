@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class TestWeaponBehaviour : MonoBehaviour
 {
     [SerializeField] public GameObject weapon;
+    [SerializeField] public GameObject player;
     float time = 0f;
     float timetowait = 2f;
+    public float weaponSwingTime = 0.1f;
 
     // Start is called before the first frame update
     void Start()
@@ -20,20 +23,18 @@ public class TestWeaponBehaviour : MonoBehaviour
         time += Time.deltaTime;
         if (time >= timetowait) 
         {
-            SwingWeapon();
+            SwingWeapon(weaponSwingTime);
             time= 0f;
         
         }
 
-
+            
     }
-    void SwingWeapon()
+    void SwingWeapon(float time)
     {
         weapon.SetActive(true);
-
-
- 
-        StartCoroutine(EndOfSwing(0.5f));
+        weapon.transform.position = player.transform.position + (new Vector3(1,0,0)*Mathf.Sign(player.transform.localScale.x));
+        StartCoroutine(EndOfSwing(time));
         
     } 
 

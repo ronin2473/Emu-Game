@@ -6,10 +6,11 @@ public class EnemyStats : MonoBehaviour
 {
     [SerializeField]  float currentHealth = 50;
     float waitedtime = 0.5f;
-    public void takedamage(float amount)
+    
+    public void takedamage(float amount, float time)
     {
         waitedtime += Time.deltaTime;
-        if (waitedtime > 0.5f) { 
+        if (waitedtime > time) { 
             waitedtime= 0;
             currentHealth -= amount;
             if (currentHealth <= 0) {
