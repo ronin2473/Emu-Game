@@ -22,13 +22,6 @@ public class EnemySpawner : MonoBehaviour
         public int enemyCount = 20; //this one Chief
         public int spawnCount;
         public GameObject enemyPrefab;
-        //public EnemyGroup(int enemyCount1, int spawnCount1, GameObject enemyPrefab1, List<GameObject> pooledEnemies1)
-        //{
-        //      enemyCount1 = enemyCount;
-        //      spawnCount1 = spawnCount;
-        //      enemyPrefab1 = enemyPrefab;
-        //      pooledEnemies1 = pooledEnemies;
-        //}
     }
 
     public List<Wave> waves;
