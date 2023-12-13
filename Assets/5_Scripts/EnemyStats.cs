@@ -30,8 +30,8 @@ public class EnemyStats : MonoBehaviour
             currentHealth -= amount;
             if (currentHealth <= 0) {
 
-                //this.gameObject.SetActive(false);
-                Destroy(gameObject);
+                this.gameObject.SetActive(false);
+                //Destroy(gameObject);
             
             }
         }

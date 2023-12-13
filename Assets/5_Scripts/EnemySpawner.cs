@@ -18,9 +18,17 @@ public class EnemySpawner : MonoBehaviour
     public class EnemyGroup
     {
         public string enemyName;
-        public int enemyCount;
+        public  List<GameObject> pooledEnemies;
+        public int enemyCount = 20; //this one Chief
         public int spawnCount;
         public GameObject enemyPrefab;
+        //public EnemyGroup(int enemyCount1, int spawnCount1, GameObject enemyPrefab1, List<GameObject> pooledEnemies1)
+        //{
+        //      enemyCount1 = enemyCount;
+        //      spawnCount1 = spawnCount;
+        //      enemyPrefab1 = enemyPrefab;
+        //      pooledEnemies1 = pooledEnemies;
+        //}
     }
 
     public List<Wave> waves;
@@ -36,11 +44,29 @@ public class EnemySpawner : MonoBehaviour
     [Header("Spawn positions")]
     public List<Transform> relativeSpawnPoints;
 
+    public static EnemySpawner SharedInstance;
+
     Transform player;
+
+    void Awake()
+    {
+        SharedInstance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+        foreach (var enemyGroup in waves[currentWaveCount].enemyGroups)
+        {
+            enemyGroup.pooledEnemies = new List<GameObject>();
+            GameObject tmp;
+            for (int i = 0; i < enemyGroup.enemyCount; i++)
+            {
+                tmp = Instantiate(enemyGroup.enemyPrefab);
+                tmp.SetActive(false);
+                enemyGroup.pooledEnemies.Add(tmp);
+            }
+        }
         player = FindObjectOfType<Player_Movement>().transform;
         CalculateWaveQuota();
     }
@@ -99,7 +125,13 @@ public class EnemySpawner : MonoBehaviour
                         return;
                     }
 
-                    Instantiate(enemyGroup.enemyPrefab, player.position + relativeSpawnPoints[Random.Range(0, relativeSpawnPoints.Count)].position, Quaternion.identity);
+                    GameObject enemy = EnemySpawner.SharedInstance.GetPooledObject(); //player.position + relativeSpawnPoints[Random.Range(0, relativeSpawnPoints.Count)].position, Quaternion.identity);
+                    if (enemy != null)
+                    {
+                        enemy.transform.position = player.position + relativeSpawnPoints[Random.Range(0, relativeSpawnPoints.Count)].position;
+                        enemy.SetActive(true);
+                    }
+                   
 
                     enemyGroup.spawnCount++;
                     waves[currentWaveCount].spawncount++;
@@ -112,6 +144,22 @@ public class EnemySpawner : MonoBehaviour
         {
             maxEnemiesReached = false;
         }
+    }
+
+    public GameObject GetPooledObject()
+    {
+        foreach (var enemyGroup in waves[currentWaveCount].enemyGroups)
+        {
+            for (int i = 0; i < enemyGroup.enemyCount; i++)
+            {
+                if (!enemyGroup.pooledEnemies[i].activeInHierarchy)
+                {
+                    return enemyGroup.pooledEnemies[i];
+                }
+            }
+            return null;
+        }
+        return null;
     }
 
     public void OnEnemyKilled()
