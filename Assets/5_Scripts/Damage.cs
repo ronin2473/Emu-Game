@@ -20,7 +20,7 @@ public class Damage : MonoBehaviour
         {
             time = 0;
             var health = collision.gameObject.GetComponent<Health>();
-            health.TakeDamage(1);
+            health.TakeDamage(50);
 
         }
     }
