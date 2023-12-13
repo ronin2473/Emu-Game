@@ -22,10 +22,10 @@ public class EnemyStats : MonoBehaviour
             ReturnEnemy();
         }
     }
-    public void takedamage(float amount)
+    public void takedamage(float amount,float swingTime)
     {
         waitedtime += Time.deltaTime;
-        if (waitedtime > 0.5f) { 
+        if (waitedtime > swingTime) { 
             waitedtime= 0;
             currentHealth -= amount;
             if (currentHealth <= 0) {
