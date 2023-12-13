@@ -6,25 +6,22 @@ using UnityEngine.UI;
 
 public class Damage : MonoBehaviour
 {
-    public Health health;
-    // Start is called before the first frame update
-    void Start()
+    private float time;
+    [SerializeField] private float waittill;
+
+    private void Start()
     {
-        
+        time = waittill;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        
-    }
-
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.tag == "Player" && (time += Time.deltaTime) >= waittill)
         {
+            time = 0;
+            var health = collision.gameObject.GetComponent<Health>();
             health.TakeDamage(1);
+
         }
     }
 }
