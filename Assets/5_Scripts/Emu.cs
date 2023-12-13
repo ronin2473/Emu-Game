@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Emu : MonoBehaviour
 {
@@ -49,12 +50,11 @@ public class Emu : MonoBehaviour
         ChoosenEmu ritterEmu = new (2, "Ezekiel the knight emu", 125, 125, 2.5f, ritterEmuStartWeapon);
         ChoosenEmu roadRunnerEmu = new (3, "Frederik the roadrunner emu", 100, 100, 3.5f, roadRunnerEmuStartWeapon);        
         ChoosenEmu pharaoEmu = new (4, "Joshua the pharao emu", 125, 125, 3, pharaoEmuStartWeapon);
-        Debug.Log(baseEmu.emuName);
         emus[0] = baseEmu;
         emus[1] = alienEmu;
         emus[2] = ritterEmu;
         emus[3] = roadRunnerEmu;
-        emus[4] = pharaoEmu;      
+        emus[4] = pharaoEmu;
                     
     }
 

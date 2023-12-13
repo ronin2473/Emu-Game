@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CharController : MonoBehaviour
 {
     [SerializeField] public Sprite[] chars;
+    [SerializeField] private string gameScene;
     public static int choosenChar = 0;
     void Start()
     {
@@ -35,6 +37,9 @@ public class CharController : MonoBehaviour
         GetComponent<Image>().sprite = chars[choosenChar];
 
     }
+    public void GetToGame()
+    {
+        SceneManager.LoadScene(gameScene);
+    }
 
-    
 }
