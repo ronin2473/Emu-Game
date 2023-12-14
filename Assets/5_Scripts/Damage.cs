@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Damage : MonoBehaviour
 {
     private float time;
+    [SerializeField] private int damage;
     [SerializeField] private float waittill;
 
     private void Start()
@@ -20,7 +21,7 @@ public class Damage : MonoBehaviour
         {
             time = 0;
             var health = collision.gameObject.GetComponent<Health>();
-            health.TakeDamage(1);
+            health.TakeDamage(damage);
 
         }
     }

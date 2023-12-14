@@ -6,6 +6,7 @@ public class EnemyStats : MonoBehaviour
 {
     [SerializeField]  float currentHealth = 50;
     float waitedtime = 0.5f;
+    public float speed;
 
     public float despawnDistance = 20f;
     Transform player;
@@ -31,13 +32,14 @@ public class EnemyStats : MonoBehaviour
             if (currentHealth <= 0) {
 
                 this.gameObject.SetActive(false);
+                OnDisable();
                 //Destroy(gameObject);
-            
+
             }
         }
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         EnemySpawner es = FindObjectOfType<EnemySpawner>();
         es.OnEnemyKilled();

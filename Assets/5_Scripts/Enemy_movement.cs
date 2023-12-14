@@ -9,17 +9,19 @@ using static UnityEngine.EventSystems.EventTrigger;
 public class Enemy_movement : MonoBehaviour
 {
     public float speed = 1f;
-    
+    public float speedMultiplier = 1800f;
 
     // Update is called once per frame
     void Update()
     {
 
+        //GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (GameObject enemy in enemies)
+        foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
         {
+            speed = enemy.GetComponent<EnemyStats>().speed * speedMultiplier;
             MoveEnemy(enemy);
+            Debug.Log(speed);
         }
         
         
@@ -36,9 +38,7 @@ public class Enemy_movement : MonoBehaviour
         Rigidbody2D rigi = enemy.GetComponent<Rigidbody2D>();
         rigi.velocity = Vector3.zero;
         Vector3 direction = Getposition();
-        direction.x = direction.x - enemy.transform.position.x;
-        direction.y = direction.y - enemy.transform.position.y;
-        direction.z = direction.z - enemy.transform.position.z;
+        direction = direction - enemy.transform.position;
         direction.Normalize();
         rigi.AddForce(new Vector2(direction.x * speed * Time.deltaTime, direction.y * speed * Time.deltaTime));
         
