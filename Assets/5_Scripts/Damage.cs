@@ -13,10 +13,13 @@ public class Damage : MonoBehaviour
     {
         time = waittill;
     }
-
+    private void Update()
+    {
+        time += Time.deltaTime;
+    }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Player" && (time += Time.deltaTime) >= waittill)
+        if(collision.gameObject.tag == "Player" && time >= waittill)
         {
             time = 0;
             var health = collision.gameObject.GetComponent<Health>();

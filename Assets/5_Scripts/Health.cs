@@ -10,7 +10,7 @@ public class Health : MonoBehaviour
     
     public int maxHealth;
     public int currentHealth;
-    public int charid = CharController.choosenChar;
+    public int charid;
     public HealthBar healthBar;
     public bool isdead = false;
     public GameObject weaponManager;
@@ -18,6 +18,7 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        charid = CharController.choosenChar;
         Emu.ChoosenEmu charc = Emu.emus[charid];
         maxHealth = charc.maxHealth;
         currentHealth = maxHealth;
