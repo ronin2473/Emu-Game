@@ -10,14 +10,12 @@ public class EnemySpawner : MonoBehaviour
         public string waveName;
         public List<EnemyGroup> enemyGroups;
         public int waveQuota;
-        public float spawnInterval;
         public int spawncount;
     }
 
     [System.Serializable]
     public class EnemyGroup
     {
-        public string enemyName;
         public  List<GameObject> pooledEnemies;
         public int enemyCount = 20; //this one Chief
         public int spawnCount;
@@ -26,6 +24,7 @@ public class EnemySpawner : MonoBehaviour
 
     public List<Wave> waves;
     public int currentWaveCount;
+    public float spawnInterval;
 
     [Header("Spawner Attributes")]
     float spawnTimer;
@@ -62,6 +61,7 @@ public class EnemySpawner : MonoBehaviour
         }
         player = FindObjectOfType<Player_Movement>().transform;
         CalculateWaveQuota();
+        enemiesAlive = 0;
     }
 
     // Update is called once per frame
@@ -74,11 +74,11 @@ public class EnemySpawner : MonoBehaviour
 
         spawnTimer += Time.deltaTime;
 
-        if (spawnTimer >= waves[currentWaveCount].spawnInterval)
+        if (spawnTimer >= spawnInterval)
         {
             spawnTimer = 0f;
             SpawnEnemies();
-
+            
         }
     }
     
@@ -98,10 +98,10 @@ public class EnemySpawner : MonoBehaviour
         int currentWaveQuota = 0;
         foreach (var EnemyGroup in waves[currentWaveCount].enemyGroups)
         {
-            currentWaveCount += EnemyGroup.enemyCount;
+            currentWaveQuota += EnemyGroup.enemyCount;
         }
         waves[currentWaveCount].waveQuota = currentWaveQuota;
-        Debug.LogWarning(currentWaveQuota);
+        Debug.Log(currentWaveQuota);
     }
 
     void SpawnEnemies()
@@ -121,8 +121,9 @@ public class EnemySpawner : MonoBehaviour
                     GameObject enemy = EnemySpawner.SharedInstance.GetPooledObject(); //player.position + relativeSpawnPoints[Random.Range(0, relativeSpawnPoints.Count)].position, Quaternion.identity);
                     if (enemy != null)
                     {
-                        enemy.transform.position = player.position + relativeSpawnPoints[Random.Range(0, relativeSpawnPoints.Count)].position;
                         enemy.SetActive(true);
+                        enemy.transform.position = player.position + relativeSpawnPoints[Random.Range(0, relativeSpawnPoints.Count)].position;
+                       
                     }
                    
 
