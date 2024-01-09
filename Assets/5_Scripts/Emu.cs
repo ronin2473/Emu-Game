@@ -28,8 +28,8 @@ public class Emu : MonoBehaviour
         public int maxHealth;
         public int currentHealth;
         public float speed;
-        public GameObject startWeapon;
-        public ChoosenEmu(int emuId2, string emuName2, int maxHealth2, int currentHealth2, float speed2, GameObject startWeapon2)
+        public int startWeapon;
+        public ChoosenEmu(int emuId2, string emuName2, int maxHealth2, int currentHealth2, float speed2, int startWeapon2)
         {
             emuId = emuId2;
             emuName = emuName2;
@@ -45,11 +45,11 @@ public class Emu : MonoBehaviour
     private void Start()
     {
 
-        ChoosenEmu baseEmu = new ChoosenEmu(0, "Bob kangaroo the emu", 100,100,3f,baseEmuStartWeapon);
-        ChoosenEmu alienEmu = new (1, "Paul the alien emu", 75, 75, 3f, alienEmuStartWeapon);
-        ChoosenEmu ritterEmu = new (2, "Ezekiel the knight emu", 125, 125, 2.5f, ritterEmuStartWeapon);
-        ChoosenEmu roadRunnerEmu = new (3, "Frederik the roadrunner emu", 100, 100, 3.5f, roadRunnerEmuStartWeapon);        
-        ChoosenEmu pharaoEmu = new (4, "Joshua the pharao emu", 125, 125, 3, pharaoEmuStartWeapon);
+        ChoosenEmu baseEmu = new ChoosenEmu(0, "Bob kangaroo the emu", 100,100,3f,0);
+        ChoosenEmu alienEmu = new (1, "Paul the alien emu", 75, 75, 3f, 1);
+        ChoosenEmu ritterEmu = new (2, "Ezekiel the knight emu", 125, 125, 2.5f, 2);
+        ChoosenEmu roadRunnerEmu = new (3, "Frederik the roadrunner emu", 100, 100, 3.5f, 3);        
+        ChoosenEmu pharaoEmu = new (4, "Joshua the pharao emu", 125, 125, 3, 4);
         emus[0] = baseEmu;
         emus[1] = alienEmu;
         emus[2] = ritterEmu;

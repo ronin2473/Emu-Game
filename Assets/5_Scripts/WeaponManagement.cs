@@ -7,6 +7,7 @@ using UnityEngine;
 public class WeaponManagement : MonoBehaviour
 {
     [System.Serializable]
+    
     public class weapon : MonoBehaviour
     {
         public int WeaponId;
@@ -27,7 +28,7 @@ public class WeaponManagement : MonoBehaviour
             damage = damage2;
             attackCooldown = attackCooldown2;
         }
-        public void DoDamage(GameObject enemy)
+        public void DoDamage(GameObject enemy,float dmg, float time)
         {
             EnemyStats stats = enemy.GetComponent<EnemyStats>();
             stats.takedamage(damage, swingtime);
@@ -42,14 +43,25 @@ public class WeaponManagement : MonoBehaviour
 
     public weapon[] weapons;
     [SerializeField] public GameObject player;
-    float time = 0f;
-    float timetowait = 2f;
+    
     public float weaponSwingTime = 0.1f;
-
+    private int charid;
     // Start is called before the first frame update
     void Start()
     {
-        weapons[0].thisWeapon.SetActive(false);
+        charid = CharController.choosenChar;
+        Emu.ChoosenEmu charc = Emu.emus[charid];
+        if (charc != null) { 
+            
+            weapons[charc.startWeapon].thisWeapon.SetActive(false);
+            weapons[charc.startWeapon].isActive = true;
+        }
+        else
+        {
+            weapons[0].thisWeapon.SetActive(false);
+            weapons[0].isActive = true;
+        }
+
     }
 
     void Update()

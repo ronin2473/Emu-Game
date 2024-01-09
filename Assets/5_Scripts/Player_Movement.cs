@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -5,7 +6,7 @@ using UnityEngine;
 
 public class Player_Movement : MonoBehaviour
 {
-    public float speed = 1f;
+    public float speed = 3f;
     private Rigidbody2D rb2d;
     int charid = CharController.choosenChar;
     
@@ -16,7 +17,12 @@ public class Player_Movement : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         Emu.ChoosenEmu emu = Emu.emus[charid];
-        speed = emu.speed;
+
+        if (emu != null)
+        {
+            speed = emu.speed;
+        }
+        else speed = 3f;
     }
 
     // Update is called once per frame

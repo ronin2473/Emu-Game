@@ -7107,6 +7107,10 @@ PrefabInstance:
       value: RoundhousekickWeapon
       objectReference: {fileID: 0}
     - target: {fileID: 7343622033426370932, guid: df6973baa60f6cd438d75606a7d17075, type: 3}
+      propertyPath: damage
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7343622033426370932, guid: df6973baa60f6cd438d75606a7d17075, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 330460809}

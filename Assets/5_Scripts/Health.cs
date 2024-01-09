@@ -20,7 +20,11 @@ public class Health : MonoBehaviour
     {
         charid = CharController.choosenChar;
         Emu.ChoosenEmu charc = Emu.emus[charid];
-        maxHealth = charc.maxHealth;
+        if (charc != null )
+        { 
+            maxHealth = charc.maxHealth;
+        }
+        else maxHealth = 100;
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }

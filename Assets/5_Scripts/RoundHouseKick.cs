@@ -26,7 +26,7 @@ public class RoundHouseKick : WeaponManagement.weapon
 
         if (enemy.gameObject.tag == "Enemy")
         {
-                DoDamage(enemy.gameObject);
+                DoDamage(enemy.gameObject,this.damage,this.swingtime);
         }
     }
     public void Start()

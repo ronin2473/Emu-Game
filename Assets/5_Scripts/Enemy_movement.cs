@@ -21,7 +21,6 @@ public class Enemy_movement : MonoBehaviour
         {
             speed = enemy.GetComponent<EnemyStats>().speed * speedMultiplier;
             MoveEnemy(enemy);
-           
         }
         
         
