@@ -22,6 +22,7 @@ public class Player_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
         bool isdead = GetComponent<Health>().isdead;
@@ -34,6 +35,5 @@ public class Player_Movement : MonoBehaviour
         //if (moveHorizontal * rb2d.velocity.x < 0f) invertFactorx = 1f;
         //if (moveVertical * rb2d.velocity.y < 0f) invertFactory = 1f;
         rb2d.velocity = new Vector2(moveHorizontal * speed   , moveVertical * speed);
-
     }
 }

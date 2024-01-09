@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class TestWeaponBehaviour : MonoBehaviour
 {
-    [SerializeField] public GameObject weapon;
+    [SerializeField] public GameObject[] weapon;
     [SerializeField] public GameObject player;
     float time = 0f;
     float timetowait = 2f;
@@ -15,7 +15,7 @@ public class TestWeaponBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        weapon.SetActive(false);
+        weapon[0].SetActive(false);
     }
 
     void Update()
@@ -23,14 +23,14 @@ public class TestWeaponBehaviour : MonoBehaviour
         time += Time.deltaTime;
         if (time >= timetowait) 
         {
-            SwingWeapon(weaponSwingTime);
+            SwingWeapon(weaponSwingTime, weapon[0], Vector3.zero);
             time= 0f;
         
         }
 
             
     }
-    void SwingWeapon(float time)
+    void SwingWeapon(float time, GameObject weapon, Vector3 displacement)
     {
         weapon.SetActive(true);
         weapon.transform.position = player.transform.position + (new Vector3(1,0,0)*Mathf.Sign(player.transform.localScale.x));
@@ -41,7 +41,7 @@ public class TestWeaponBehaviour : MonoBehaviour
     IEnumerator EndOfSwing(float delay)
     {
         yield return new WaitForSeconds(delay);
-        weapon.SetActive(false);
+        weapon[0].SetActive(false);
         StopCoroutine(EndOfSwing(delay));   
     }
     
