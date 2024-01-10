@@ -11,7 +11,7 @@ public class OnHitDo : MonoBehaviour
         if (enemy.gameObject.tag == "Enemy")
         {
             EnemyStats stats = enemy.GetComponent<EnemyStats>();
-            stats.takedamage(25, swingtime);
+            stats.takedamage(25);
         }
     }
 }

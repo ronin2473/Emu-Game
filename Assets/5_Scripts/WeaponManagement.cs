@@ -27,10 +27,10 @@ public class WeaponManagement : MonoBehaviour
             damage = damage2;
             attackCooldown = attackCooldown2;
         }
-        public void DoDamage(GameObject enemy)
+        public void DoDamage(GameObject enemy, float damage)
         {
             EnemyStats stats = enemy.GetComponent<EnemyStats>();
-            stats.takedamage(damage, swingtime);
+            stats.takedamage(damage);
 
         }
 
@@ -42,8 +42,6 @@ public class WeaponManagement : MonoBehaviour
 
     public weapon[] weapons;
     [SerializeField] public GameObject player;
-    float time = 0f;
-    float timetowait = 2f;
     public float weaponSwingTime = 0.1f;
 
     // Start is called before the first frame update
