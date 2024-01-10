@@ -28,10 +28,11 @@ public class WeaponManagement : MonoBehaviour
             damage = damage2;
             attackCooldown = attackCooldown2;
         }
-        public void DoDamage(GameObject enemy,float dmg, float time)
+        public void DoDamage(GameObject enemy,float dmg)
         {
             EnemyStats stats = enemy.GetComponent<EnemyStats>();
-            stats.takedamage(damage, swingtime);
+
+            stats.takedamage(dmg);
 
         }
 
@@ -49,6 +50,10 @@ public class WeaponManagement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        foreach (weapon weapon in weapons)
+        {
+            weapon.gameObject.SetActive(false);
+        }
         charid = CharController.choosenChar;
         Emu.ChoosenEmu charc = Emu.emus[charid];
         if (charc != null) { 
@@ -58,8 +63,8 @@ public class WeaponManagement : MonoBehaviour
         }
         else
         {
-            weapons[0].thisWeapon.SetActive(false);
-            weapons[0].isActive = true;
+            weapons[1].thisWeapon.SetActive(false);
+            weapons[1].isActive = true;
         }
 
     }
@@ -77,7 +82,6 @@ public class WeaponManagement : MonoBehaviour
                 
                 if (weapon.isActive)
                     {
-
                     SwingWeapon(weapon.swingtime, weapon.thisWeapon);
                     }
                 weapon.attackTime = 0f;

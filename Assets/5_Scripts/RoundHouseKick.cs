@@ -26,14 +26,15 @@ public class RoundHouseKick : WeaponManagement.weapon
 
         if (enemy.gameObject.tag == "Enemy")
         {
-                DoDamage(enemy.gameObject,this.damage,this.swingtime);
+            Debug.Log(this.damage);
+            DoDamage(enemy.gameObject,this.damage);
         }
     }
-    public void Start()
-    {
-        this.thisWeapon = this.gameObject;
-        this.attackCooldown += this.swingtime;
-    }
+    //public void Start()
+    //{
+    //    this.thisWeapon = this.gameObject;
+    //    this.attackCooldown += this.swingtime;
+    //}
 
     private void OnEnable()
     
