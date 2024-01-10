@@ -16,8 +16,7 @@ public class EnemySpawner : MonoBehaviour
     [System.Serializable]
     public class EnemyGroup
     {
-        public  List<GameObject> pooledEnemies;
-        public int enemyCount = 20; //this one Chief
+        public int enemyCount; //this one Chief
         public int spawnCount;
         public GameObject enemyPrefab;
     }
@@ -25,6 +24,8 @@ public class EnemySpawner : MonoBehaviour
     public List<Wave> waves;
     public int currentWaveCount;
     public float spawnInterval;
+    public List<GameObject> pooledEnemies;
+    GameObject tmp;
 
     [Header("Spawner Attributes")]
     float spawnTimer;
@@ -50,18 +51,18 @@ public class EnemySpawner : MonoBehaviour
     {
         foreach (var enemyGroup in waves[currentWaveCount].enemyGroups)
         {
-            enemyGroup.pooledEnemies = new List<GameObject>();
-            GameObject tmp;
+            //pooledEnemies = new List<GameObject>();
+            
             for (int i = 0; i < enemyGroup.enemyCount; i++)
             {
                 tmp = Instantiate(enemyGroup.enemyPrefab);
                 tmp.SetActive(false);
-                enemyGroup.pooledEnemies.Add(tmp);
+                pooledEnemies.Add(tmp);
             }
         }
         player = FindObjectOfType<Player_Movement>().transform;
-        CalculateWaveQuota();
         enemiesAlive = 0;
+        StartCoroutine(BeginNextWave());
     }
 
     // Update is called once per frame
@@ -118,15 +119,13 @@ public class EnemySpawner : MonoBehaviour
                         return;
                     }
 
-                    GameObject enemy = EnemySpawner.SharedInstance.GetPooledObject(); //player.position + relativeSpawnPoints[Random.Range(0, relativeSpawnPoints.Count)].position, Quaternion.identity);
-                    if (enemy != null)
+                    tmp = EnemySpawner.SharedInstance.GetPooledObject();
+                    Debug.Log(tmp); 
+                    if (tmp != null)
                     {
-                        enemy.SetActive(true);
-                        enemy.transform.position = player.position + relativeSpawnPoints[Random.Range(0, relativeSpawnPoints.Count)].position;
-                       
+                        tmp.SetActive(true);
+                        tmp.transform.position = player.position + relativeSpawnPoints[Random.Range(0, relativeSpawnPoints.Count)].position;                       
                     }
-                   
-
                     enemyGroup.spawnCount++;
                     waves[currentWaveCount].spawncount++;
                     enemiesAlive++;
@@ -146,9 +145,9 @@ public class EnemySpawner : MonoBehaviour
         {
             for (int i = 0; i < enemyGroup.enemyCount; i++)
             {
-                if (!enemyGroup.pooledEnemies[i].activeInHierarchy)
+                if (!pooledEnemies[i].activeInHierarchy)
                 {
-                    return enemyGroup.pooledEnemies[i];
+                    return pooledEnemies[i];
                 }
             }
             return null;

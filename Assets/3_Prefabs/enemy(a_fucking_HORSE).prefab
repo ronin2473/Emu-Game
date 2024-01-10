@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3636928241761013034}
   - component: {fileID: 3636928241761013035}
   m_Layer: 0
-  m_Name: enemy (a fucking HORSE)
+  m_Name: enemy(a_fucking_HORSE)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
