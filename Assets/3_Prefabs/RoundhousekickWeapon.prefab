@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7343622033426370934}
   - component: {fileID: 7343622033426370935}
   - component: {fileID: 7343622033426370932}
-  - component: {fileID: 7343622033426370939}
   m_Layer: 0
   m_Name: RoundhousekickWeapon
   m_TagString: Untagged
@@ -81,26 +80,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponId: 0
   Weaponname: EmuFeet
-  swingtime: 2
-  thisWeapon: {fileID: 0}
-  damage: 0
-  isActive: 1
+  swingtime: 0.3
+  thisWeapon: {fileID: 7343622033426370928}
+  damage: 25
+  isActive: 0
   attackCooldown: 1
   attackTime: 0
+  level: 0
   player: {fileID: 0}
---- !u!114 &7343622033426370939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7343622033426370928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 091c482bea1e5d1478618febeef6981b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swingtime: 0
+  level2damage: 50
+  level3damage: 75
 --- !u!1 &7343622033883624396
 GameObject:
   m_ObjectHideFlags: 0

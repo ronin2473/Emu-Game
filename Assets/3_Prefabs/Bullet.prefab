@@ -47,7 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fffb68821f707b04c862d9942d91cfe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gun: {fileID: 977782927812397595, guid: abbbd6bcfcec4d64e936556c10ad0284, type: 3}
   lifetime: 1
+  damage: 0
 --- !u!50 &8046022993034362520
 Rigidbody2D:
   serializedVersion: 4

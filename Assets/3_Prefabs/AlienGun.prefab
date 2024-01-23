@@ -46,16 +46,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponId: 1
   Weaponname: AlienGun
-  swingtime: 0.3
-  thisWeapon: {fileID: 0}
-  damage: 0
-  isActive: 1
-  attackCooldown: 0
+  swingtime: 0
+  thisWeapon: {fileID: 977782927812397594}
+  damage: 25
+  isActive: 0
+  attackCooldown: 2
   attackTime: 0
+  level: 0
   player: {fileID: 0}
   bullets: []
   bullet: {fileID: 8046022993034362526, guid: 948e6ede44207514a8ea414c4746bf68, type: 3}
-  bulletCount: 5
-  bulletSpeed: 2
+  bulletCount: 10
+  bulletSpeed: 10
   bulletId: 0
+  bulletsound: {fileID: 0}
   bulletlifetime: 5

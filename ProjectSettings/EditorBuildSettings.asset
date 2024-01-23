@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/4_Scenes/StartCutscene.unity
+    guid: c3de487395fd911409e3a92e7b28afb8
+  - enabled: 1
     path: Assets/4_Scenes/Menu.unity
     guid: 29b8849a5ce4e0d4db4a891af8038ae2
   - enabled: 1
@@ -14,10 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/4_Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/4_Scenes/DeathScene.unity
+    guid: 9d84322afd8bfe446ae4d7435286d78e
   - enabled: 0
     path: Assets/4_Scenes/tiziantest_scene.unity
     guid: f4ce94248307e244c96830adf1246261
   - enabled: 1
-    path: Assets/4_Scenes/DeathScene.unity
-    guid: 9d84322afd8bfe446ae4d7435286d78e
+    path: Assets/4_Scenes/VictoryScreen.unity
+    guid: 78ae929939391c143971f68896ac465e
   m_configObjects: {}

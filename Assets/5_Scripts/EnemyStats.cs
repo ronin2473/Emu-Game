@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class EnemyStats : MonoBehaviour
 {
+    AudioSource audioSource;
+    public AudioSource audioSource1;
+    public AudioSource audioSource2;
     [SerializeField]  float currentHealth = 50;
     public float speed;
+    bool dead = false;
 
     public float despawnDistance = 20f;
     Transform player;
@@ -13,6 +17,7 @@ public class EnemyStats : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<Player_Movement>().transform;
+
     }
 
     void Update()
@@ -24,23 +29,43 @@ public class EnemyStats : MonoBehaviour
     }
     public void takedamage(float amount)
     {
-        
+        if (audioSource1 != null)
+        {
+            int x = Random.Range(0, 2);
+            if (x == 0)
+            {
+                audioSource = audioSource1;
+                
+            }
+            else if (audioSource2 != null)
+            {
+                
+                audioSource = audioSource2;
+            }
+            else
+            {
+                audioSource = audioSource1;
+            }
+        }
+        audioSource.Play();
             currentHealth -= amount;
-            if (currentHealth <= 0) {
-
-                this.gameObject.SetActive(false);
-                OnDisable();
+            if (currentHealth <= 0 && !dead) {
+                dead = true;
+                EnemySpawnerNoPooling es = FindObjectOfType<EnemySpawnerNoPooling>();
+                es.OnEnemyKilled();
+                Destroy(this.gameObject);
+                //OnDisable();
                 //Destroy(gameObject);
 
             }
         
     }
 
-    void OnDisable()
-    {
-        EnemySpawner es = FindObjectOfType<EnemySpawner>();
-        es.OnEnemyKilled();
-    }
+    //void OnDisable()
+    //{
+    //    EnemySpawner es = FindObjectOfType<EnemySpawner>();
+    //    es.OnEnemyKilled();
+    //}
 
     void ReturnEnemy()
     {

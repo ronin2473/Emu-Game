@@ -9,6 +9,8 @@ public class RoundHouseKick : WeaponManagement.weapon
 {
     public GameObject player;
 
+    public float level2damage = 50;
+    public float level3damage = 75;
     public RoundHouseKick(int WeaponId2, string Weaponname2, float swingtime2, GameObject thisWeapon2, float damage2, float attackCooldown2) : base(WeaponId2, Weaponname2, swingtime2,  thisWeapon2, damage2, attackCooldown2)
     {
         this.WeaponId = WeaponId2;
@@ -26,18 +28,22 @@ public class RoundHouseKick : WeaponManagement.weapon
 
         if (enemy.gameObject.tag == "Enemy")
         {
-                DoDamage(enemy.gameObject,this.damage);
+            DoDamage(enemy.gameObject,this.damage);
         }
     }
-    public void Start()
-    {
-        this.thisWeapon = this.gameObject;
-        this.attackCooldown += this.swingtime;
-    }
+    
 
     private void OnEnable()
     
     {
+        if (this.level == 2)
+        {
+            this.damage = level2damage;
+        }
+        if (this.level == 3)
+        {
+            this.damage = level3damage;
+        }
         this.transform.position = player.transform.position;
     }
 

@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 730846725146684418}
   - component: {fileID: 730846725146684421}
   - component: {fileID: 4283873034259863087}
+  - component: {fileID: 568834094}
   m_Layer: 0
   m_Name: EnemyController 1
   m_TagString: Untagged
@@ -87,9 +88,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 730846725146684419}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.35194254, y: -0.1397482, z: -0.34037957}
-  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8510057744943539359}
@@ -127,7 +128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae00aab4ee2126443a9690688ad8a287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5500
+  speed: 1
+  speedMultiplier: 1800
 --- !u!114 &4283873034259863087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,17 +137,60 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 730846725146684419}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc3fac0ccc3f42a42a79708bf3feab63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waves: []
+  waves:
+  - waveName: 0
+    enemyGroups:
+    - enemyCount: 30
+      spawnCount: 0
+      enemyPrefab: {fileID: 3636928241761013076, guid: c72517fe84347b34b8092c70c681dc18, type: 3}
+    - enemyCount: 40
+      spawnCount: 0
+      enemyPrefab: {fileID: 5729011799592226977, guid: f373bfb5ec82e05499def1a0bffb5ed4, type: 3}
+    - enemyCount: 35
+      spawnCount: 0
+      enemyPrefab: {fileID: 2062270915464647267, guid: b8a75559e518c5c43a4f3f4fcbb5d5c1, type: 3}
+    - enemyCount: 10
+      spawnCount: 0
+      enemyPrefab: {fileID: 88943514037711613, guid: 48b026af9728f164d9f15c7543ad4d45, type: 3}
+    - enemyCount: 1
+      spawnCount: 0
+      enemyPrefab: {fileID: 5283522923053930076, guid: 67d2b4758db00a244ae35753c455fb08, type: 3}
+    - enemyCount: 100
+      spawnCount: 0
+      enemyPrefab: {fileID: 5426645013074913151, guid: 589c21bf3c181474c9700c6b151a71b1, type: 3}
+    waveQuota: 0
+    spawncount: 0
+  - waveName: 0
+    enemyGroups:
+    - enemyCount: 40
+      spawnCount: 0
+      enemyPrefab: {fileID: 5729011799592226977, guid: f373bfb5ec82e05499def1a0bffb5ed4, type: 3}
+    - enemyCount: 35
+      spawnCount: 0
+      enemyPrefab: {fileID: 2062270915464647267, guid: b8a75559e518c5c43a4f3f4fcbb5d5c1, type: 3}
+    - enemyCount: 10
+      spawnCount: 0
+      enemyPrefab: {fileID: 88943514037711613, guid: 48b026af9728f164d9f15c7543ad4d45, type: 3}
+    - enemyCount: 1
+      spawnCount: 0
+      enemyPrefab: {fileID: 5283522923053930076, guid: 67d2b4758db00a244ae35753c455fb08, type: 3}
+    - enemyCount: 100
+      spawnCount: 0
+      enemyPrefab: {fileID: 5426645013074913151, guid: 589c21bf3c181474c9700c6b151a71b1, type: 3}
+    waveQuota: 0
+    spawncount: 0
   currentWaveCount: 0
+  spawnInterval: 3
+  pooledEnemies: []
   enemiesAlive: 0
-  maxEnemiesAllowed: 0
+  maxEnemiesAllowed: 100
   maxEnemiesReached: 0
-  waveInterval: 0
+  waveInterval: 3
   relativeSpawnPoints:
   - {fileID: 8510057744943539359}
   - {fileID: 1285402775432809848}
@@ -167,6 +212,75 @@ MonoBehaviour:
   - {fileID: 4659622560299783902}
   - {fileID: 5570707065434627676}
   - {fileID: 7920625017400170381}
+--- !u!114 &568834094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730846725146684419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f84b45df239b1544bbd90cc0dce3976, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waves:
+  - waveName: First Wave
+    enemyGroups:
+    - enemyName: Snek
+      enemyCount: 1
+      spawnCount: 0
+      enemyPrefab: {fileID: 5729011799592226977, guid: f373bfb5ec82e05499def1a0bffb5ed4, type: 3}
+    waveQuota: 0
+    spawnInterval: 2
+    spawncount: 0
+  - waveName: Second Wave
+    enemyGroups:
+    - enemyName: Snek
+      enemyCount: 2
+      spawnCount: 0
+      enemyPrefab: {fileID: 5729011799592226977, guid: f373bfb5ec82e05499def1a0bffb5ed4, type: 3}
+    waveQuota: 0
+    spawnInterval: 5
+    spawncount: 0
+  - waveName: Second Wave
+    enemyGroups:
+    - enemyName: Snek
+      enemyCount: 2
+      spawnCount: 0
+      enemyPrefab: {fileID: 5729011799592226977, guid: f373bfb5ec82e05499def1a0bffb5ed4, type: 3}
+    waveQuota: 0
+    spawnInterval: 5
+    spawncount: 0
+  currentWaveCount: 0
+  enemiesAlive: 0
+  maxEnemiesAllowed: 300
+  maxEnemiesReached: 0
+  waveInterval: 0
+  itemsystem: {fileID: 0}
+  relativeSpawnPoints:
+  - {fileID: 8510057744943539359}
+  - {fileID: 1285402775432809848}
+  - {fileID: 286585765769154676}
+  - {fileID: 1319785959799496346}
+  - {fileID: 1797651942067466722}
+  - {fileID: 4273549478590731315}
+  - {fileID: 9222739770846867895}
+  - {fileID: 7657462630253632196}
+  - {fileID: 2092778723194624820}
+  - {fileID: 5704233287832510363}
+  - {fileID: 1593203027327359211}
+  - {fileID: 7234496045802932151}
+  - {fileID: 546079144704964718}
+  - {fileID: 4503934579319711959}
+  - {fileID: 9156142804187527737}
+  - {fileID: 8796108502517173727}
+  - {fileID: 5829881880627102746}
+  - {fileID: 4659622560299783902}
+  - {fileID: 5570707065434627676}
+  - {fileID: 7920625017400170381}
+  win: VictoryScreen
+  wavecompletetext: {fileID: 0}
 --- !u!1 &1198877786717253089
 GameObject:
   m_ObjectHideFlags: 0

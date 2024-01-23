@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -17,7 +18,7 @@ public class WeaponManagement : MonoBehaviour
         public bool isActive = false;
         public float attackCooldown;
         public float attackTime = 0;
-
+        public int level = 0;
         public weapon(int WeaponId2, string Weaponname2, float swingtime2, GameObject thisWeapon2, float damage2, float attackCooldown2)
         {
             WeaponId = WeaponId2;
@@ -39,15 +40,37 @@ public class WeaponManagement : MonoBehaviour
 
 
     }
-
+    public int charid;
     public weapon[] weapons;
     [SerializeField] public GameObject player;
-    public float weaponSwingTime = 0.1f;
 
-    // Start is called before the first frame update
     void Start()
     {
-        weapons[0].thisWeapon.SetActive(false);
+        charid = CharController.choosenChar;
+        Emu.ChoosenEmu charc = Emu.emus[charid];
+
+        foreach (weapon weapon in weapons)
+        {
+            weapon.gameObject.SetActive(false);
+
+            
+            //if (charc != null)
+            //{
+            //    if (charc.startWeapon == weapon.WeaponId)
+            //    {
+            //        weapon.isActive = true;
+
+            //    }
+            //}
+            //else
+            //{
+            //    weapons[0].isActive = true;
+            //    weapons[0].level = 1;
+            //}
+
+        }
+        
+        
     }
 
     void Update()

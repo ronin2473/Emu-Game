@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player_Movement : MonoBehaviour
 {
-    public float speed = 1f;
+    public static float time = 0;
+    public float speed = 3f;
     private Rigidbody2D rb2d;
     int charid = CharController.choosenChar;
+    public TextMeshProUGUI timer;
     
 
 
@@ -16,13 +19,19 @@ public class Player_Movement : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         Emu.ChoosenEmu emu = Emu.emus[charid];
-        speed = emu.speed;
+        if (emu != null)
+        {
+            speed = emu.speed;
+        }
+        time = 0;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        time += Time.deltaTime;
+        timer.text = time.ToString();
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
         bool isdead = GetComponent<Health>().isdead;

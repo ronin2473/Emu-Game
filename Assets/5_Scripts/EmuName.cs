@@ -8,22 +8,33 @@ public class EmuName : MonoBehaviour
 {
     
     int charid = CharController.choosenChar;
+    public TextMeshProUGUI health;
+    public TextMeshProUGUI damage;
+    public TextMeshProUGUI speed;
+    public List<float> damages;
     string words;
-    TextMeshProUGUI text;
+    public TextMeshProUGUI text;
+    public List<Sprite> weaponimgs;
+    public Image weaponimage;
 
     void Start()
     {
-        text = GetComponent<TextMeshProUGUI>();
-        Emu.ChoosenEmu charc = Emu.emus[charid];
-        words = charc.emuName;
-        text.text = words;
+        
+        
     }
 
     void Update()
     {
         charid = CharController.choosenChar;
         Emu.ChoosenEmu charc = Emu.emus[charid];
+        weaponimage.sprite = weaponimgs[charid];
         words = charc.emuName;
         text.text = words;
+        words =  charc.maxHealth.ToString();
+        health.text = ($"Health: {words}") ;
+        words = charc.speed.ToString();
+        speed.text = ("Speed: " + words).ToString();
+        words = damages[charid].ToString();
+        damage.text = "Damage: " + words;
     }
 }
