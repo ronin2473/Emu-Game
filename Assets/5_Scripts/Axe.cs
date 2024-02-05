@@ -2,33 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Axe : MonoBehaviour
 {
-    public float lifetime;
     public float damage;
-
+    public float lifetime;
+    public Rigidbody2D axerigi;
+    public GameObject thisaxe;
+    public new AudioSource audio;
     private void OnEnable()
     {
         StartCoroutine("DisableObject");
+        
     }
     IEnumerator DisableObject()
     {
         yield return new WaitForSeconds(lifetime);
-        this.gameObject.SetActive(false);
+        audio.Stop();
+        thisaxe.SetActive(false);
         StopCoroutine("DisableObject");
     }
-    private void OnDisable()
-    {
-        StopCoroutine("DisableObject");
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
             EnemyStats stats = collision.gameObject.GetComponent<EnemyStats>();
             stats.takedamage(damage);
-            this.gameObject.SetActive(false);
+            thisaxe.SetActive(false);
         }
     }
 }
