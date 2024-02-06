@@ -273,7 +273,7 @@ PrefabInstance:
     - target: {fileID: 6166140981401046044, guid: 4168c7316c8a62b4884c41c67225b1a3, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 309971673}
     - target: {fileID: 6166140981401046045, guid: 4168c7316c8a62b4884c41c67225b1a3, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -354,6 +354,11 @@ MonoBehaviour:
 --- !u!50 &309971672 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 8695790857131050773, guid: a07ec248b6bd9864a881f23704d5ecbb, type: 3}
+  m_PrefabInstance: {fileID: 8695790856891469253}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &309971673 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8695790857131050769, guid: a07ec248b6bd9864a881f23704d5ecbb, type: 3}
   m_PrefabInstance: {fileID: 8695790856891469253}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &365274021 stripped
@@ -1005,9 +1010,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 309971672}
     - target: {fileID: 977782927812397595, guid: abbbd6bcfcec4d64e936556c10ad0284, type: 3}
+      propertyPath: swingtime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 977782927812397595, guid: abbbd6bcfcec4d64e936556c10ad0284, type: 3}
+      propertyPath: bulletSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 977782927812397595, guid: abbbd6bcfcec4d64e936556c10ad0284, type: 3}
       propertyPath: bulletsound
       value: 
       objectReference: {fileID: 2037371359}
+    - target: {fileID: 977782927812397595, guid: abbbd6bcfcec4d64e936556c10ad0284, type: 3}
+      propertyPath: attackCooldown
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 977782927812397604, guid: abbbd6bcfcec4d64e936556c10ad0284, type: 3}
       propertyPath: m_RootOrder
       value: 5
