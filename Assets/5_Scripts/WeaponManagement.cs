@@ -103,13 +103,14 @@ public class WeaponManagement : MonoBehaviour
     void SwingWeapon(float time, GameObject weapon)
     {
         weapon.SetActive(true);
+        if (time == 0f) return;
         StartCoroutine(EndOfSwing(time, weapon));
 
     }
 
     IEnumerator EndOfSwing(float delay, GameObject obj)
     {
-        yield return new WaitForSeconds(delay);
+        yield return new WaitForSeconds(delay); 
         obj.SetActive(false);
         StopCoroutine("EndOfSwing");
     }

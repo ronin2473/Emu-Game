@@ -29,6 +29,7 @@ public class AlienGun : WeaponManagement.weapon
             tmp.GetComponent<Bullet>().lifetime = this.bulletlifetime;
             tmp.SetActive(false);
         }
+        this.attackCooldown -= this.swingtime;
     }
     
     public void Shoot(int direction)

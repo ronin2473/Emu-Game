@@ -52,7 +52,6 @@ public class Whipweapon : WeaponManagement.weapon
 
         }
         this.transform.position = player.transform.position + new Vector3(this.transform.localScale.x/2,0,0);
-        Debug.Log(direction);
         this.transform.localScale = new Vector3(Mathf.Sign(player.transform.localScale.x), 1, 1)*direction;
         if (leveledup) direction = -direction ;
     }
