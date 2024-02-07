@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class EnemyStats : MonoBehaviour
 {
     AudioSource audioSource;
-    public AudioSource audioSource1;
-    public AudioSource audioSource2;
+    AudioSource audioSource1;
+    AudioSource audioSource2;
     [SerializeField]  float currentHealth = 50;
     public float speed;
     bool dead = false;
@@ -16,7 +17,10 @@ public class EnemyStats : MonoBehaviour
 
     void Start()
     {
-        player = FindObjectOfType<Player_Movement>().transform;
+        var tmp = FindObjectOfType<Player_Movement>();
+        player = tmp.transform;
+        audioSource1 = tmp.audioSource1;
+        audioSource2 = tmp.audioSource2;
 
     }
 

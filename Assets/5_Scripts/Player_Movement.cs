@@ -11,7 +11,8 @@ public class Player_Movement : MonoBehaviour
     private Rigidbody2D rb2d;
     int charid = CharController.choosenChar;
     public TextMeshProUGUI timer;
-    
+    public AudioSource audioSource1;
+    public AudioSource audioSource2;
 
 
     // Start is called before the first frame update
