@@ -6900,6 +6900,18 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 48c5070af1664da47bc38cf58a4ae80c, type: 3}
+    - target: {fileID: 8695790856072892205, guid: a07ec248b6bd9864a881f23704d5ecbb, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695790856072892205, guid: a07ec248b6bd9864a881f23704d5ecbb, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695790856072892205, guid: a07ec248b6bd9864a881f23704d5ecbb, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8695790856072892206, guid: a07ec248b6bd9864a881f23704d5ecbb, type: 3}
       propertyPath: deathdelay
       value: 1.5

@@ -24,6 +24,11 @@ public class BoomerangWeapon : WeaponManagement.weapon
     {
         boomerangsound.Play();
     }
+
+    public void OnDisable()
+    {
+        boomerangsound.Stop();
+    }
     void Update()
     {
         if (this.level == 2)

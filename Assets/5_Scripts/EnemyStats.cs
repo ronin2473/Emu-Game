@@ -8,6 +8,7 @@ public class EnemyStats : MonoBehaviour
     AudioSource audioSource;
     AudioSource audioSource1;
     AudioSource audioSource2;
+    SpriteRenderer sprite;
     [SerializeField]  float currentHealth = 50;
     public float speed;
     bool dead = false;
@@ -21,6 +22,7 @@ public class EnemyStats : MonoBehaviour
         player = tmp.transform;
         audioSource1 = tmp.audioSource1;
         audioSource2 = tmp.audioSource2;
+        sprite = GetComponent<SpriteRenderer>();
 
     }
 
@@ -30,6 +32,7 @@ public class EnemyStats : MonoBehaviour
         {
             ReturnEnemy();
         }
+
     }
     public void takedamage(float amount)
     {
@@ -50,6 +53,10 @@ public class EnemyStats : MonoBehaviour
             {
                 audioSource = audioSource1;
             }
+            Color col = sprite.color;
+            sprite.color = Color.red;
+            StartCoroutine(blink(0.2f, sprite,col));
+
         }
         audioSource.Play();
             currentHealth -= amount;
@@ -70,7 +77,14 @@ public class EnemyStats : MonoBehaviour
     //    EnemySpawner es = FindObjectOfType<EnemySpawner>();
     //    es.OnEnemyKilled();
     //}
-
+    
+    IEnumerator blink(float time,SpriteRenderer sprite,Color color)
+    {
+        yield return new WaitForSeconds(time);
+        sprite.color = color;
+        
+    }
+    
     void ReturnEnemy()
     {
         EnemySpawner es = FindObjectOfType<EnemySpawner>();
