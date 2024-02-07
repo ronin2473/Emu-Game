@@ -158,7 +158,7 @@ MonoBehaviour:
   swingtime: 0.3
   thisWeapon: {fileID: 9142247020026196088}
   damage: 20
-  isActive: 1
+  isActive: 0
   attackCooldown: 2
   attackTime: 0
   level: 0
@@ -167,7 +167,7 @@ MonoBehaviour:
   attackSound: {fileID: 0}
   level2damage: 30
   level3damage: 40
-  col: {fileID: 0}
+  col: {fileID: 6058148460327035238}
   rigi: {fileID: 9142247020026196085}
   wavespeed: 15
   gettiingbigger: {x: 0.02, y: 0.02, z: 0}

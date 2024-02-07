@@ -12,6 +12,7 @@ public class Shield : WeaponManagement.weapon
     private bool leveled3 = false;
     public float level2damage;
     public float level3damage;
+    public AudioSource shieldAudio;
     public Shield(int WeaponId2, string Weaponname2, float swingtime2, GameObject thisWeapon2, float damage2, float attackCooldown2) : base(WeaponId2, Weaponname2, swingtime2, thisWeapon2, damage2, attackCooldown2)
     {
 
@@ -30,6 +31,7 @@ public class Shield : WeaponManagement.weapon
         {
             shieldinstance tmp = Instantiate(shields[0]);
             tmp.Randomr(3f);
+            tmp.shieldaudio = shieldAudio;
             shields.Add(tmp);
             leveled2 = true;
             foreach (shieldinstance shield in shields)
@@ -42,6 +44,7 @@ public class Shield : WeaponManagement.weapon
         {
             shieldinstance tmp = Instantiate(shields[0]);
             tmp.Randomr(4.5f);
+            tmp.shieldaudio = shieldAudio;
             shields.Add(tmp);
             leveled3 = true;
             foreach (shieldinstance shield in shields)

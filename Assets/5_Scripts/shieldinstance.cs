@@ -9,7 +9,7 @@ public class shieldinstance : MonoBehaviour
     public float speed;
     private float angle;
     public float r;
-    
+    public AudioSource shieldaudio;
 
     
 
@@ -32,6 +32,7 @@ public class shieldinstance : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
+            shieldaudio.Play();
             EnemyStats stats = collision.gameObject.GetComponent<EnemyStats>();
             stats.takedamage(damage);
         }

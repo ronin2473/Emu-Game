@@ -9,6 +9,7 @@ using UnityEngine.UIElements;
 public class Sword : WeaponManagement.weapon
 {
     public GameObject player;
+    public AudioSource swordSound;
     public float level2damage = 50;
     public float level3damage = 75;
 
@@ -48,6 +49,7 @@ public class Sword : WeaponManagement.weapon
         }
         this.transform.position = player.transform.position;
         this.transform.localScale = new Vector3(Mathf.Sign(player.transform.localScale.x),1,1);
+        swordSound.Play();
     }
 
     private void Update()

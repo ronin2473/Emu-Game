@@ -11,6 +11,7 @@ public class BoomerangWeapon : WeaponManagement.weapon
     public float level3damage;
     public new Rigidbody2D rigidbody;
     public Transform player;
+    public AudioSource boomerangsound;
     public BoomerangWeapon(int WeaponId2, string Weaponname2, float swingtime2, GameObject thisWeapon2, float damage2, float attackCooldown2) : base(WeaponId2, Weaponname2, swingtime2, thisWeapon2, damage2, attackCooldown2) {
     
 
@@ -18,6 +19,11 @@ public class BoomerangWeapon : WeaponManagement.weapon
     private float time;
 
     [System.Obsolete]
+
+    private void OnEnable()
+    {
+        boomerangsound.Play();
+    }
     void Update()
     {
         if (this.level == 2)

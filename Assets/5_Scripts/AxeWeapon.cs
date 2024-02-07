@@ -48,7 +48,6 @@ public class AxeWeapon : WeaponManagement.weapon
                 axeId = 0;
 
             }
-            Debug.Log(axes.Count);
             Axe ree = axes[axeId];
             ree.axerigi.transform.position = this.transform.position;
             ree.axerigi.gameObject.SetActive(true);
