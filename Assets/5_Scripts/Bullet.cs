@@ -6,9 +6,11 @@ public class Bullet : MonoBehaviour
 {
     public float lifetime;
     public float damage;
+    public Animator animator;
 
     private void OnEnable()
     {
+        animator.playbackTime = 0;
         StartCoroutine("DisableObject");
     }
     IEnumerator DisableObject()
@@ -29,6 +31,7 @@ public class Bullet : MonoBehaviour
             EnemyStats stats = collision.gameObject.GetComponent<EnemyStats>();
             stats.takedamage(damage);
             this.gameObject.SetActive(false);
+            animator.playbackTime = 0;
         }
     }
 }

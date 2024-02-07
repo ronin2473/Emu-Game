@@ -36,6 +36,7 @@ public class RoundHouseKick : WeaponManagement.weapon
     private void OnEnable()
     
     {
+        this.transform.localScale = new Vector3(transform.localScale.x * Mathf.Sign(player.transform.localScale.x), transform.localScale.y, transform.localScale.z);
         if (this.level == 2)
         {
             this.damage = level2damage;
@@ -50,6 +51,7 @@ public class RoundHouseKick : WeaponManagement.weapon
     private void Update()
     {
         this.transform.position = player.transform.position;
+        
     }
 }
 

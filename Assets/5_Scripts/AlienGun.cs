@@ -58,7 +58,7 @@ public class AlienGun : WeaponManagement.weapon
     {
         if (this.level > 1)
         {
-            this.damage = 75;
+            this.damage = 50;
 
         }
         this.transform.position = player.transform.position;

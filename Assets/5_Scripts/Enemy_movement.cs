@@ -10,6 +10,7 @@ public class Enemy_movement : MonoBehaviour
 {
     public float speed = 1f;
     public float speedMultiplier = 1800f;
+    public Transform player;
 
     // Update is called once per frame
     void Update()
@@ -28,16 +29,16 @@ public class Enemy_movement : MonoBehaviour
         
     }
 
-    public Vector3 Getposition() {
-        GameObject goal = GameObject.FindGameObjectWithTag("Player");
-        return goal.transform.position;
-    }
+    //public Vector3 Getposition() {
+    //    GameObject goal = GameObject.FindGameObjectWithTag("Player");
+    //    return goal.transform.position;
+    //}
 
     public void MoveEnemy(GameObject enemy)
     {
         Rigidbody2D rigi = enemy.GetComponent<Rigidbody2D>();
         rigi.velocity = Vector3.zero;
-        Vector3 direction = Getposition();
+        Vector3 direction = player.position;
         direction = direction - enemy.transform.position;
         direction.Normalize();
         rigi.AddForce(new Vector2(direction.x * speed * Time.deltaTime, direction.y * speed * Time.deltaTime));

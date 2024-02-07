@@ -8,11 +8,18 @@ public class Axe : MonoBehaviour
     public float lifetime;
     public Rigidbody2D axerigi;
     public GameObject thisaxe;
+    public float rotatespeed;
     public new AudioSource audio;
     private void OnEnable()
     {
+        this.transform.Rotate(0, 0, 0);
         StartCoroutine("DisableObject");
         
+    }
+
+    private void Update()
+    {
+        this.transform.Rotate(0, 0, this.transform.rotation.x + rotatespeed*Time.deltaTime);
     }
     IEnumerator DisableObject()
     {

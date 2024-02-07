@@ -10,8 +10,7 @@ public class AxeWeapon : WeaponManagement.weapon
     public Axe axe;
     public int axeCount;
     public float axeSpeed;
-    int axeId = 0;
-    
+    public int axeId = 0;
     public AudioSource axeSound;
     [Range(0f, 10f)] public float axeFlightDuration = 5;
     public AxeWeapon(int WeaponId2, string Weaponname2, float swingtime2, GameObject thisWeapon2, float damage2, float attackCooldown2) : base(WeaponId2, Weaponname2, swingtime2, thisWeapon2, damage2, attackCooldown2)
@@ -21,25 +20,18 @@ public class AxeWeapon : WeaponManagement.weapon
 
     public void Start()
     {
-        
-        for (int i = 0; i < axeCount; i++)
+        this.attackCooldown -= swingtime;
+        for (int i = 0; i < axeCount ; i++)
         {
             Axe tmp = Instantiate(axe);
             tmp.damage = damage;
             tmp.lifetime = axeFlightDuration;
-            axe.audio = axeSound;
+            tmp.audio = axeSound;
             axes.Add(tmp);
             tmp.thisaxe.SetActive(false);
 
         }
-        //for (int i = 0; i < bulletCount; i++)
-        //{
-        //    GameObject tmp = Instantiate(bullet);
-        //    this.bullets.Add(tmp);
-        //    tmp.GetComponent<Bullet>().damage = this.damage;
-        //    tmp.GetComponent<Bullet>().lifetime = this.bulletlifetime;
-        //    tmp.SetActive(false);
-        //}
+        
 
     }
 
@@ -48,31 +40,34 @@ public class AxeWeapon : WeaponManagement.weapon
 
     public void Shoot(int direction)
     {
-        
-        
-        
-        if (axeId >= axes.Count - 1)
+
+        if (axes.Count != 0)
         {
-            axeId = 0;
+            if (axeId >= axes.Count)
+            {
+                axeId = 0;
 
+            }
+            Debug.Log(axes.Count);
+            Axe ree = axes[axeId];
+            ree.axerigi.transform.position = this.transform.position;
+            ree.axerigi.gameObject.SetActive(true);
+            //bulletsound.pitch = Random.Range(-3,3);
+            //axeSound.Play();
+
+            ree.lifetime = this.axeFlightDuration;
+
+            ree.axerigi.AddForce((new Vector2(100 * Mathf.Sign(player.transform.localScale.x) + 100 * player.velocity.x, 250 + 100 * player.velocity.y) * axeSpeed));
+
+            ree.damage = this.damage;
+            ree.audio.Play();
+            axeId++;
         }
-        Axe ree = axes[axeId];
-        ree.axerigi.transform.position = this.transform.position;
-        ree.axerigi.gameObject.SetActive(true);
-        //bulletsound.pitch = Random.Range(-3,3);
-        //axeSound.Play();
-
-        ree.lifetime = this.axeFlightDuration;
-
-        ree.axerigi.AddForce((new Vector2(100 * Mathf.Sign(player.transform.localScale.x) + 100 * player.velocity.x, 250 + 100* player.velocity.y) *axeSpeed  ));
-        
-        ree.damage = this.damage;
-        ree.audio.Play();
-        axeId++;
     }
     private void OnEnable()
 
     {
+        
         if (this.level > 1)
         {
             if (level == 2) damage = 30;

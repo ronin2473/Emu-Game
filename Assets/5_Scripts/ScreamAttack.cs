@@ -14,6 +14,7 @@ public class ScreamAttack : WeaponManagement.weapon
     public AudioSource attackSound;
     public float level2damage = 30;
     public float level3damage = 40;
+    public Collider2D col;
     public Rigidbody2D rigi;
     public float wavespeed = 2f;
     public Vector3 gettiingbigger;
@@ -64,8 +65,9 @@ public class ScreamAttack : WeaponManagement.weapon
 
     private void Update()
     {
-        this.transform.localScale += gettiingbigger;
-        
+        this.transform.localScale += new Vector3(gettiingbigger.x*Mathf.Sign(transform.localScale.x), gettiingbigger.y * Mathf.Sign(transform.localScale.y), gettiingbigger.z);
+
+
     }
 }
 

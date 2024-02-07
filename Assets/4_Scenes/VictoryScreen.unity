@@ -431,7 +431,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   video: {fileID: 236910617}
   rawImage: {fileID: 236910618}
-  mainmenu: 
+  mainmenu: Menu
 --- !u!1 &895986839
 GameObject:
   m_ObjectHideFlags: 0

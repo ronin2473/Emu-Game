@@ -31,7 +31,11 @@ public class Health : MonoBehaviour
     
     public void TakeDamage(int damageAmount)
     {
-        hurtsound.Play();
+        if (!isdead)
+        {
+            hurtsound.Play();
+        }
+        
         currentHealth -= damageAmount;
         if (currentHealth <= 0) { 
         

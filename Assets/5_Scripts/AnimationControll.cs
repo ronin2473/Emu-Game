@@ -9,6 +9,7 @@ public class AnimationControll : MonoBehaviour
     private int ID = CharController.choosenChar;
     [SerializeField] GameObject player;
     [SerializeField] string deathscene;
+    public float deathdelay;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -23,8 +24,16 @@ public class AnimationControll : MonoBehaviour
         animator.SetFloat("Speed", movement);
     }
 
+
     private void Deathscene()
     {
+        StartCoroutine(DeathScenetransition());
+    }
+
+    IEnumerator DeathScenetransition()
+    {
+        yield return new WaitForSeconds(deathdelay);
         SceneManager.LoadScene(deathscene);
+        StopCoroutine(DeathScenetransition());
     }
 }

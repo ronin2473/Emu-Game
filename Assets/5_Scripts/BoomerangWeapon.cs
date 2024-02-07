@@ -16,7 +16,8 @@ public class BoomerangWeapon : WeaponManagement.weapon
 
     }
     private float time;
-    
+
+    [System.Obsolete]
     void Update()
     {
         if (this.level == 2)
@@ -34,7 +35,9 @@ public class BoomerangWeapon : WeaponManagement.weapon
 
         float x = amplitude * Mathf.Sin(time * 2);
         float y = amplitude * Mathf.Sin(2.5f * time);
-
+        this.transform.Rotate(this.transform.rotation.x, this.transform.rotation.y, this.transform.rotation.z + amplitude * Mathf.Sign(time));
+        //this.transform.rotation.SetEulerRotation(this.transform.rotation.x, this.transform.rotation.y, this.transform.rotation.z + amplitude * Mathf.Sign(time * 2));
+        //this.transform.rotation.Set(this.transform.rotation.x, this.transform.rotation.y, this.transform.rotation.z +amplitude * Mathf.Sign(time * 2), this.transform.rotation.w);
         this.transform.position = (new Vector3(x, y, 0f)) + player.position;
     }
     private void OnTriggerEnter2D(Collider2D enemy)
