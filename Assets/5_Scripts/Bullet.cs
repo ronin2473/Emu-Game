@@ -7,10 +7,16 @@ public class Bullet : MonoBehaviour
     public float lifetime;
     public float damage;
     public Animator animator;
+    bool ree = true;
 
     private void OnEnable()
     {
-        animator.playbackTime = 0;
+        if (ree)
+        {
+            ree = false;
+            animator.playbackTime = 0;
+        }
+        
         StartCoroutine("DisableObject");
     }
     IEnumerator DisableObject()

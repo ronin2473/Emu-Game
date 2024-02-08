@@ -8,6 +8,7 @@ public class Gamemenu : MonoBehaviour
     [SerializeField] GameObject button1;
     [SerializeField] GameObject button2;
     [SerializeField] Texture2D customCursor;
+    bool paused = false;
     
     private void Start()
     {
@@ -17,17 +18,28 @@ public class Gamemenu : MonoBehaviour
     }
     public void Menu()
     {
+        paused = !paused;
+        if (paused)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
         button1.SetActive(!(button1.activeSelf));
         button2.SetActive(!(button2.activeSelf));
     }
 
     public void Restart()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("SampleScene");
     }
 
     public void MainMenu()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("Menu");
     }
 }
