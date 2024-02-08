@@ -12,6 +12,7 @@ public class EnemyStats : MonoBehaviour
     [SerializeField]  float currentHealth = 50;
     public float speed;
     bool dead = false;
+    bool collered= false;
 
     public float despawnDistance = 20f;
     Transform player;
@@ -53,9 +54,12 @@ public class EnemyStats : MonoBehaviour
             {
                 audioSource = audioSource1;
             }
+            if (!collered) { 
+                collered = true;
             Color col = sprite.color;
             sprite.color = Color.red;
             StartCoroutine(blink(0.2f, sprite,col));
+            }
 
         }
         audioSource.Play();
@@ -82,7 +86,7 @@ public class EnemyStats : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         sprite.color = color;
-        
+        collered = false;
     }
     
     void ReturnEnemy()
