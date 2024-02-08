@@ -229,15 +229,15 @@ MonoBehaviour:
   - waveName: First Wave
     enemyGroups:
     - enemyName: Farmer
-      enemyCount: 8
+      enemyCount: 10
       spawnCount: 0
       enemyPrefab: {fileID: 5426645013074913151, guid: 589c21bf3c181474c9700c6b151a71b1, type: 3}
     - enemyName: Auto
-      enemyCount: 3
+      enemyCount: 5
       spawnCount: 0
       enemyPrefab: {fileID: 88943514037711613, guid: 48b026af9728f164d9f15c7543ad4d45, type: 3}
     waveQuota: 0
-    spawnInterval: 2
+    spawnInterval: 1
     spawncount: 0
   - waveName: Second Wave
     enemyGroups:
@@ -306,56 +306,111 @@ MonoBehaviour:
     waveQuota: 0
     spawnInterval: 2
     spawncount: 0
-  - waveName: Sixth Wave
+  - waveName: Fifth Wave
     enemyGroups:
     - enemyName: Farmer
-      enemyCount: 300
+      enemyCount: 15
       spawnCount: 0
       enemyPrefab: {fileID: 5426645013074913151, guid: 589c21bf3c181474c9700c6b151a71b1, type: 3}
     - enemyName: Croc
-      enemyCount: 200
+      enemyCount: 8
+      spawnCount: 0
+      enemyPrefab: {fileID: 2062270915464647267, guid: b8a75559e518c5c43a4f3f4fcbb5d5c1, type: 3}
+    waveQuota: 0
+    spawnInterval: 2
+    spawncount: 0
+  - waveName: Sixth  Wave
+    enemyGroups:
+    - enemyName: Car
+      enemyCount: 10
+      spawnCount: 0
+      enemyPrefab: {fileID: 88943514037711613, guid: 48b026af9728f164d9f15c7543ad4d45, type: 3}
+    - enemyName: Horses
+      enemyCount: 10
+      spawnCount: 0
+      enemyPrefab: {fileID: 3636928241761013076, guid: c72517fe84347b34b8092c70c681dc18, type: 3}
+    waveQuota: 0
+    spawnInterval: 4
+    spawncount: 0
+  - waveName: Seventh Wave
+    enemyGroups:
+    - enemyName: Snek
+      enemyCount: 15
+      spawnCount: 0
+      enemyPrefab: {fileID: 5729011799592226977, guid: f373bfb5ec82e05499def1a0bffb5ed4, type: 3}
+    - enemyName: Auto
+      enemyCount: 3
+      spawnCount: 0
+      enemyPrefab: {fileID: 88943514037711613, guid: 48b026af9728f164d9f15c7543ad4d45, type: 3}
+    - enemyName: Horse
+      enemyCount: 5
+      spawnCount: 0
+      enemyPrefab: {fileID: 3636928241761013076, guid: c72517fe84347b34b8092c70c681dc18, type: 3}
+    - enemyName: Schnappi
+      enemyCount: 5
+      spawnCount: 0
+      enemyPrefab: {fileID: 2062270915464647267, guid: b8a75559e518c5c43a4f3f4fcbb5d5c1, type: 3}
+    waveQuota: 0
+    spawnInterval: 2.5
+    spawncount: 0
+  - waveName: Eighth Wave
+    enemyGroups:
+    - enemyName: Farmer
+      enemyCount: 30
+      spawnCount: 0
+      enemyPrefab: {fileID: 5426645013074913151, guid: 589c21bf3c181474c9700c6b151a71b1, type: 3}
+    waveQuota: 0
+    spawnInterval: 1
+    spawncount: 0
+  - waveName: Ninth Wave
+    enemyGroups:
+    - enemyName: Snek
+      enemyCount: 10
+      spawnCount: 0
+      enemyPrefab: {fileID: 5729011799592226977, guid: f373bfb5ec82e05499def1a0bffb5ed4, type: 3}
+    - enemyName: Auto
+      enemyCount: 10
+      spawnCount: 0
+      enemyPrefab: {fileID: 88943514037711613, guid: 48b026af9728f164d9f15c7543ad4d45, type: 3}
+    - enemyName: Horse
+      enemyCount: 10
+      spawnCount: 0
+      enemyPrefab: {fileID: 3636928241761013076, guid: c72517fe84347b34b8092c70c681dc18, type: 3}
+    - enemyName: Schnappi
+      enemyCount: 10
       spawnCount: 0
       enemyPrefab: {fileID: 2062270915464647267, guid: b8a75559e518c5c43a4f3f4fcbb5d5c1, type: 3}
     waveQuota: 0
     spawnInterval: 3
     spawncount: 0
-  - waveName: Seventh  Wave
-    enemyGroups:
-    - enemyName: Car
-      enemyCount: 150
-      spawnCount: 0
-      enemyPrefab: {fileID: 88943514037711613, guid: 48b026af9728f164d9f15c7543ad4d45, type: 3}
-    - enemyName: Horses
-      enemyCount: 600
-      spawnCount: 0
-      enemyPrefab: {fileID: 3636928241761013076, guid: c72517fe84347b34b8092c70c681dc18, type: 3}
-    waveQuota: 0
-    spawnInterval: 3
-    spawncount: 0
-  - waveName: Sixth Wave
+  - waveName: Tenth Wave
     enemyGroups:
     - enemyName: Gwinnilein
       enemyCount: 1
       spawnCount: 0
       enemyPrefab: {fileID: 5283522923053930076, guid: 67d2b4758db00a244ae35753c455fb08, type: 3}
     - enemyName: Snek
-      enemyCount: 40
+      enemyCount: 5
       spawnCount: 0
       enemyPrefab: {fileID: 5729011799592226977, guid: f373bfb5ec82e05499def1a0bffb5ed4, type: 3}
     - enemyName: Auto
-      enemyCount: 60
+      enemyCount: 5
       spawnCount: 0
       enemyPrefab: {fileID: 88943514037711613, guid: 48b026af9728f164d9f15c7543ad4d45, type: 3}
     - enemyName: Horse
-      enemyCount: 50
+      enemyCount: 5
       spawnCount: 0
       enemyPrefab: {fileID: 3636928241761013076, guid: c72517fe84347b34b8092c70c681dc18, type: 3}
     - enemyName: Schnappi
-      enemyCount: 30
+      enemyCount: 6
       spawnCount: 0
       enemyPrefab: {fileID: 2062270915464647267, guid: b8a75559e518c5c43a4f3f4fcbb5d5c1, type: 3}
+    - enemyName: Farmer
+      enemyCount: 20
+      spawnCount: 0
+      enemyPrefab: {fileID: 5426645013074913151, guid: 589c21bf3c181474c9700c6b151a71b1, type: 3}
     waveQuota: 0
-    spawnInterval: 3
+    spawnInterval: 2
     spawncount: 0
   currentWaveCount: 0
   enemiesAlive: 0
