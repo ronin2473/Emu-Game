@@ -6772,6 +6772,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 352fe1cea58431947bfe0682a27b0c5d, type: 3}
+--- !u!68 &906404280172313821 stripped
+EdgeCollider2D:
+  m_CorrespondingSourceObject: {fileID: 906404278765944835, guid: 352fe1cea58431947bfe0682a27b0c5d, type: 3}
+  m_PrefabInstance: {fileID: 906404280172313820}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2077131962905670777
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7029,6 +7034,10 @@ PrefabInstance:
       propertyPath: timer
       value: 
       objectReference: {fileID: 188283528}
+    - target: {fileID: 8695790857131050772, guid: a07ec248b6bd9864a881f23704d5ecbb, type: 3}
+      propertyPath: edgemap
+      value: 
+      objectReference: {fileID: 906404280172313821}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a07ec248b6bd9864a881f23704d5ecbb, type: 3}
 --- !u!4 &8695790856891469254 stripped

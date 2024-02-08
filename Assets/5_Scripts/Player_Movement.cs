@@ -13,6 +13,7 @@ public class Player_Movement : MonoBehaviour
     public TextMeshProUGUI timer;
     public AudioSource audioSource1;
     public AudioSource audioSource2;
+    public Collider2D edgemap;
 
 
     // Start is called before the first frame update

@@ -21,6 +21,7 @@ public class EnemyStats : MonoBehaviour
     {
         var tmp = FindObjectOfType<Player_Movement>();
         player = tmp.transform;
+        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), tmp.edgemap);
         audioSource1 = tmp.audioSource1;
         audioSource2 = tmp.audioSource2;
         sprite = GetComponent<SpriteRenderer>();
