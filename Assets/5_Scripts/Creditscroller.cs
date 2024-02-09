@@ -63,7 +63,7 @@ public class Creditscroller : MonoBehaviour
         {
             SceneManager.LoadScene("Menu");
         }
-        else if
+        //else if (scrolly.value >)
 
 
 
