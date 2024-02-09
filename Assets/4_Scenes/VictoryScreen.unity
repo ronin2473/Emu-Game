@@ -432,6 +432,8 @@ MonoBehaviour:
   video: {fileID: 236910617}
   rawImage: {fileID: 236910618}
   mainmenu: Menu
+  creditscene: WhoDidIt
+  victorydelay: 5
 --- !u!1 &895986839
 GameObject:
   m_ObjectHideFlags: 0

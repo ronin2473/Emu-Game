@@ -17,6 +17,9 @@ public class VictoryScene : MonoBehaviour
 
     public static string previousScene;
 
+    [SerializeField] string creditscene;
+    public float victorydelay;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,10 +33,20 @@ public class VictoryScene : MonoBehaviour
         if (video.isPrepared)
         {
             rawImage.texture = video.texture;
+            StartCoroutine(VictoryScenetransition());
+
         }
         if (Input.GetButtonDown("Cancel"))
         {
             SceneManager.LoadScene(mainmenu);
         }
     }
+
+    IEnumerator VictoryScenetransition()
+    {
+        yield return new WaitForSeconds(victorydelay);
+        SceneManager.LoadScene(creditscene);
+        StopCoroutine(VictoryScenetransition());
+    }
+
 }
