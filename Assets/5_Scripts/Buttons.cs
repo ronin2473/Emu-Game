@@ -29,7 +29,7 @@ public class Buttons : MonoBehaviour
     }
     public void GameOptions()
     {
-        Debug.Log("No option tab implemented yet");
+        SceneManager.LoadScene("ConfigUWUrama");
     }
 
     public void GameStart()
