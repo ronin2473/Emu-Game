@@ -8,12 +8,20 @@ public class Buttons : MonoBehaviour
 {
     [SerializeField] private string sceneToSwapTo;
     [SerializeField] Texture2D customCursor;
-    
-    
+
+    public static string previousScene;
+
+
     private void Start()
     {
         Cursor.SetCursor(customCursor, Vector2.zero, CursorMode.Auto);
-          
+
+        previousScene = SceneManager.GetActiveScene().name;
+        Debug.Log(previousScene);
+
+        AudioManager audi =  FindObjectOfType<AudioManager>();
+        audi.PlayMusic("MenuMusic");
+
     }
     public void GameQuit()
     {
@@ -32,7 +40,7 @@ public class Buttons : MonoBehaviour
     public void GameCredits()
     {
         
-        //SceneManager.LoadScene("Credits");
+        SceneManager.LoadScene("WhoDidIt");
     }
 
     public void GameHistory()

@@ -27,6 +27,8 @@ public class Player_Movement : MonoBehaviour
         }
         time = 0;
 
+        AudioManager audi = FindObjectOfType<AudioManager>();
+        audi.PlayMusic("BattleMusic");
     }
 
     // Update is called once per frame
