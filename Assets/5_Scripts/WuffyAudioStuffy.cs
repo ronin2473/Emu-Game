@@ -7,9 +7,13 @@ using UnityEngine.UI;
 public class WuffyAudioStuffy : MonoBehaviour
 {
     SetAudio audio;
+    public static WuffyAudioStuffy instance;
     public Slider general;
     public Slider music;
     public Slider sfx;
+    //Slider generalSlider;
+    //Slider musicSlider;
+    //Slider sfxSlider;
 
     private void Start()
     {
@@ -24,6 +28,18 @@ public class WuffyAudioStuffy : MonoBehaviour
         music.value = 0f;
         sfx.value = 0f;
 
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+            //generalSlider = GameObject.Find(general.name)?.GetComponent<Slider>();
+            //musicSlider = GameObject.Find(music.name)?.GetComponent<Slider>();
+            //sfxSlider = GameObject.Find(sfx.name)?.GetComponent<Slider>();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
 
     }
     void Update()
