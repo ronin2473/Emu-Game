@@ -43,6 +43,7 @@ public class EnemySpawnerNoPooling : MonoBehaviour
     public int enemiesdied = 0;
     public string win;
     public TextMeshProUGUI wavecompletetext;
+    public float resettimer = 0f;
     // Start is called before the first frame update
     void Start()
     {

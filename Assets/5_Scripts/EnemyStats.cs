@@ -92,8 +92,12 @@ public class EnemyStats : MonoBehaviour
     
     void ReturnEnemy()
     {
-        EnemySpawner es = FindObjectOfType<EnemySpawner>();
+        EnemySpawnerNoPooling es = FindObjectOfType<EnemySpawnerNoPooling>();
+        es.resettimer += Time.deltaTime;
+        if (es.resettimer >= 0.5f) { 
         transform.position = player.position + es.relativeSpawnPoints[Random.Range(0, es.relativeSpawnPoints.Count)].position;
+        } 
+        
     }
 }
 
