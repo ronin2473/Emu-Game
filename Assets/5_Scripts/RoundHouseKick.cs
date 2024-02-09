@@ -11,6 +11,7 @@ public class RoundHouseKick : WeaponManagement.weapon
     public AudioSource Legaudio;
     public float level2damage = 50;
     public float level3damage = 75;
+    bool first = false;
     public RoundHouseKick(int WeaponId2, string Weaponname2, float swingtime2, GameObject thisWeapon2, float damage2, float attackCooldown2) : base(WeaponId2, Weaponname2, swingtime2,  thisWeapon2, damage2, attackCooldown2)
     {
         this.WeaponId = WeaponId2;
@@ -36,7 +37,9 @@ public class RoundHouseKick : WeaponManagement.weapon
     private void OnEnable()
     
     {
-        Legaudio.Play();
+        if (first )Legaudio.Play();
+        first = true;
+
         this.transform.localScale = new Vector3(transform.localScale.x * Mathf.Sign(player.transform.localScale.x), transform.localScale.y, transform.localScale.z);
         if (this.level == 2)
         {

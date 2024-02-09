@@ -6,6 +6,7 @@ public class Teleporter : MonoBehaviour
 {
     public static Collider2D goal;
     public Collider2D player;
+    AudioSource audi;
     float time;
     float time2;
 
@@ -14,12 +15,14 @@ public class Teleporter : MonoBehaviour
         time = Time.realtimeSinceStartup;
         time2 = time;
         player = FindObjectOfType<Player_Movement>().GetComponent<Collider2D>();
+        audi = GetComponent<AudioSource>();
     }
 
     public void Teleport(Transform goal)
     {
         time = Time.time;
         if (time >= time2) {
+            audi.Play();
             time2 = time +5;
             player.transform.position = new Vector3(goal.position.x, goal.position.y,player.transform.position.z);
         }

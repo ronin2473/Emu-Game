@@ -13,6 +13,7 @@ public class Whipweapon : WeaponManagement.weapon
     bool leveledup = false;
     int direction = 1;
     public AudioSource whipsound;
+    bool first = false;
     public Whipweapon(int WeaponId2, string Weaponname2, float swingtime2, GameObject thisWeapon2, float damage2, float attackCooldown2) : base(WeaponId2, Weaponname2, swingtime2, thisWeapon2, damage2, attackCooldown2)
     {
         
@@ -55,7 +56,8 @@ public class Whipweapon : WeaponManagement.weapon
         this.transform.position = player.transform.position + new Vector3(this.transform.localScale.x/2,0,0);
         this.transform.localScale = new Vector3(Mathf.Sign(player.transform.localScale.x), 1, 1)*direction;
         if (leveledup) direction = -direction ;
-        whipsound.Play();
+        if (first) whipsound.Play();
+        first = true;
     }
 
     private void Update()
