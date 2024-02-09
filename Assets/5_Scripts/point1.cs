@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class point1 : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Collider2D point2;
+    public Teleporter teleporter;
+    
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (col == teleporter.player)
+        {
+            teleporter.Teleport(point2.transform);
+        }
     }
 }
