@@ -17,6 +17,8 @@ public class VictoryScene : MonoBehaviour
 
     public static string previousScene;
 
+    int alreadywon = Creditscroller.timesplayed;
+
     [SerializeField] string creditscene;
     public float victorydelay;
 
@@ -33,13 +35,21 @@ public class VictoryScene : MonoBehaviour
         if (video.isPrepared)
         {
             rawImage.texture = video.texture;
-            StartCoroutine(VictoryScenetransition());
+
+            if (alreadywon < 1)
+            {
+                StartCoroutine(VictoryScenetransition());
+            }
+            else if (alreadywon >= 1)
+            {
+                creditscene = "Menu";
+
+                StartCoroutine(VictoryScenetransition());
+            }
+                
 
         }
-        if (Input.GetButtonDown("Cancel"))
-        {
-            SceneManager.LoadScene(mainmenu);
-        }
+        
     }
 
     IEnumerator VictoryScenetransition()

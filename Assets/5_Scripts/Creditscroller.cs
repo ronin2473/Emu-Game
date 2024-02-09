@@ -21,8 +21,8 @@ public class Creditscroller : MonoBehaviour
     {
         scrolly = FindObjectOfType<Scrollbar>();
 
-        //AudioManager audi = FindObjectOfType<AudioManager>();
-        //audi.PlayMusic("CreditMusic");
+        AudioManager audi = FindObjectOfType<AudioManager>();
+        audi.PlayMusic("CreditMusic");
         Debug.Log(timesplayed);
         Debug.Log(scenename);
         if (scenename == "VictoryScreen" && timesplayed == 0)
@@ -53,17 +53,25 @@ public class Creditscroller : MonoBehaviour
 
                 clicked = true;
             }
+            
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                SceneManager.LoadScene("Menu");
+            }
+
         }
         if (clicked == false)
         {
             scrolly.value -= 0.006f * Time.deltaTime;
+            //scrolly.value -= 0.05f * Time.deltaTime;
         }
 
         if (scrolly.value <= 0 && timesplayed == 1)
         {
+            timesplayed++;
             SceneManager.LoadScene("Menu");
         }
-        //else if (scrolly.value >)
+        
 
 
 
