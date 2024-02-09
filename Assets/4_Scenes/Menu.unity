@@ -312,6 +312,7 @@ GameObject:
   - component: {fileID: 331912116}
   - component: {fileID: 331912115}
   - component: {fileID: 331912117}
+  - component: {fileID: 331912118}
   m_Layer: 0
   m_Name: AudioStuffywuffy
   m_TagString: Untagged
@@ -369,6 +370,21 @@ MonoBehaviour:
   - name: CreditMusic
     clip: {fileID: 8300000, guid: 5adb1616b51294f49a241daa208ca415, type: 3}
   musicSource: {fileID: 381394387}
+--- !u!114 &331912118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331912114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0ec7248c5882954fb3ed21b66446ec2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 20c3dfdd43d73aa49b0ec001b54a4452, type: 2}
+  sFX: {fileID: 3163981098280749490, guid: 20c3dfdd43d73aa49b0ec001b54a4452, type: 2}
+  music: {fileID: -8951630091166060949, guid: 20c3dfdd43d73aa49b0ec001b54a4452, type: 2}
 --- !u!1 &381394386
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,12 +411,12 @@ AudioSource:
   m_GameObject: {fileID: 381394386}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -8951630091166060949, guid: 20c3dfdd43d73aa49b0ec001b54a4452, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1801,7 +1817,7 @@ AudioSource:
   m_GameObject: {fileID: 1928810103}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3163981098280749490, guid: 20c3dfdd43d73aa49b0ec001b54a4452, type: 2}
   m_audioClip: {fileID: 8300000, guid: 961efa00a21e5c54fa7af0a5809d8eec, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.25

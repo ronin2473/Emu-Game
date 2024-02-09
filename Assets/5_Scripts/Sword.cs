@@ -12,6 +12,7 @@ public class Sword : WeaponManagement.weapon
     public AudioSource swordSound;
     public float level2damage = 50;
     public float level3damage = 75;
+    bool first = false;
 
     public Sword(int WeaponId2, string Weaponname2, float swingtime2, GameObject thisWeapon2, float damage2, float attackCooldown2) : base(WeaponId2, Weaponname2, swingtime2, thisWeapon2, damage2, attackCooldown2)
     {
@@ -49,7 +50,11 @@ public class Sword : WeaponManagement.weapon
         }
         this.transform.position = player.transform.position;
         this.transform.localScale = new Vector3(Mathf.Sign(player.transform.localScale.x),1,1);
-        swordSound.Play();
+        if (first)
+        {
+            swordSound.Play();
+        }
+        first = true;
     }
 
     private void Update()

@@ -13,12 +13,14 @@ public class Player_Movement : MonoBehaviour
     public TextMeshProUGUI timer;
     public AudioSource audioSource1;
     public AudioSource audioSource2;
-    public Collider2D edgemap;
-
+    public AudioSource audioSource3;
+    public Collider2D edgemap;  
+    Gamemenu gamemenu;
 
     // Start is called before the first frame update
     void Start()
     {
+        gamemenu = FindObjectOfType<Gamemenu>();
         rb2d = GetComponent<Rigidbody2D>();
         Emu.ChoosenEmu emu = Emu.emus[charid];
         if (emu != null)
@@ -48,5 +50,9 @@ public class Player_Movement : MonoBehaviour
         //if (moveHorizontal * rb2d.velocity.x < 0f) invertFactorx = 1f;
         //if (moveVertical * rb2d.velocity.y < 0f) invertFactory = 1f;
         rb2d.velocity = new Vector2(moveHorizontal * speed   , moveVertical * speed);
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            gamemenu.Menu();
+        }
     }
 }
