@@ -21405,6 +21405,10 @@ EdgeCollider2D:
   - {x: -178.22276, y: 105.472755}
   - {x: -172.4635, y: 103.29274}
   - {x: -164.33638, y: 100.562706}
+  - {x: -164.30539, y: 96.62973}
+  - {x: -166.4143, y: 96.02542}
+  - {x: -166.49881, y: 92.19514}
+  - {x: -163.96349, y: 92.143745}
   - {x: -163.89737, y: 90.18239}
   - {x: -168.0221, y: 87.202515}
   - {x: -164.14578, y: 85.10116}
@@ -31645,8 +31649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84b1c22528301204b920b11aaf4e7068, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  point1: {fileID: 300959182625601537}
-  point2: {fileID: 8009372415111121583}
+  player: {fileID: 0}
 --- !u!1 &4371764317347628288
 GameObject:
   m_ObjectHideFlags: 0
@@ -31657,6 +31660,7 @@ GameObject:
   m_Component:
   - component: {fileID: 776481375658057542}
   - component: {fileID: 8009372415111121583}
+  - component: {fileID: 3102597417946770244}
   m_Layer: 0
   m_Name: pointTwo
   m_TagString: Untagged
@@ -31695,6 +31699,20 @@ CapsuleCollider2D:
   m_Offset: {x: 0.4753401, y: 1.3162624}
   m_Size: {x: 16.137196, y: 10.798982}
   m_Direction: 1
+--- !u!114 &3102597417946770244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4371764317347628288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ad66853ad1a15a4382bfa0aa39e9938, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  point2: {fileID: 300959182625601537}
+  teleporter: {fileID: 5072025028007762301}
 --- !u!1 &6157077909719670421
 GameObject:
   m_ObjectHideFlags: 0
@@ -31741,7 +31759,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.5469437, y: 1.6536331}
+  m_Offset: {x: -1.7177505, y: 1.6536331}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -31752,7 +31770,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 11.135147, y: 4.307266}
+  m_Size: {x: 6.687912, y: 4.307266}
   m_EdgeRadius: 0
 --- !u!114 &1289879258485022332
 MonoBehaviour:
@@ -31766,3 +31784,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad66853ad1a15a4382bfa0aa39e9938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  point2: {fileID: 8009372415111121583}
+  teleporter: {fileID: 5072025028007762301}

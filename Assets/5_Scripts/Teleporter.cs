@@ -4,25 +4,27 @@ using UnityEngine;
 
 public class Teleporter : MonoBehaviour
 {
-    public Collider2D point1;
-    public Collider2D point2;
-    Transform player;
+    public static Collider2D goal;
+    public Collider2D player;
+    float time;
+    float time2;
 
     private void Start()
     {
-        player = FindObjectOfType<Player_Movement>().transform;
+        time = Time.realtimeSinceStartup;
+        time2 = time;
+        player = FindObjectOfType<Player_Movement>().GetComponent<Collider2D>();
     }
-    private void OnTriggerEnter2D(Collider2D trigger)
+
+    public void Teleport(Transform goal)
     {
-        if (trigger = point1)
-        {
-            player.position = point2.transform.position;
+        time = Time.time;
+        if (time >= time2) {
+            time2 = time +5;
+            player.transform.position = new Vector3(goal.position.x, goal.position.y,player.transform.position.z);
         }
 
-        if (trigger = point2)
-        {
-            player.position = point2.transform.position;
-        }
+
     }
 
 
