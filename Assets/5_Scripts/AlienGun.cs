@@ -31,7 +31,15 @@ public class AlienGun : WeaponManagement.weapon
         }
         this.attackCooldown -= this.swingtime;
     }
-    
+    float RandomPitch(float min, float max)
+    {
+        float z = Random.value;
+        if (z > min && z < max)
+        {
+            return z;
+        }
+        else return RandomPitch(min, max);
+    }
     public void Shoot(int direction)
     {
         if (bulletId < bullets.Count -1)
@@ -48,6 +56,7 @@ public class AlienGun : WeaponManagement.weapon
         ree.transform.position = this.transform.position;
         ree.SetActive(true);
         //bulletsound.pitch = Random.Range(-3,3);
+        bulletsound.pitch = RandomPitch(0.7f,1.2f);
         bulletsound.Play();
         ree.GetComponent<Bullet>().lifetime = this.bulletlifetime;
         ree.GetComponent<Rigidbody2D>().velocity = ((new Vector2(1, 0) * Mathf.Sign(player.transform.localScale.x)) + player.velocity.normalized).normalized * this.bulletSpeed * direction;

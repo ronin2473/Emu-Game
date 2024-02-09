@@ -8,6 +8,7 @@ public class EnemyStats : MonoBehaviour
     AudioSource audioSource;
     AudioSource audioSource1;
     AudioSource audioSource2;
+    AudioSource audioSource3;
     SpriteRenderer sprite;
     [SerializeField]  float currentHealth = 50;
     public float speed;
@@ -24,6 +25,7 @@ public class EnemyStats : MonoBehaviour
         Physics2D.IgnoreCollision(GetComponent<Collider2D>(), tmp.edgemap);
         audioSource1 = tmp.audioSource1;
         audioSource2 = tmp.audioSource2;
+        audioSource3 = tmp.audioSource3;
         sprite = GetComponent<SpriteRenderer>();
 
     }
@@ -63,18 +65,20 @@ public class EnemyStats : MonoBehaviour
             }
 
         }
-        audioSource.Play();
+        
             currentHealth -= amount;
             if (currentHealth <= 0 && !dead) {
                 dead = true;
                 EnemySpawnerNoPooling es = FindObjectOfType<EnemySpawnerNoPooling>();
                 es.OnEnemyKilled();
+            audioSource = audioSource3;
                 Destroy(this.gameObject);
                 //OnDisable();
                 //Destroy(gameObject);
 
             }
-        
+        audioSource.Play();
+
     }
 
     //void OnDisable()

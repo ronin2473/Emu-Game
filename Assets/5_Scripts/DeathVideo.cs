@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class DeathVideo : MonoBehaviour
 {
+    public AudioSource gameOver;
     private VideoPlayer video;
     RawImage rawImage;
     int videoId = CharController.choosenChar;
@@ -18,6 +19,7 @@ public class DeathVideo : MonoBehaviour
         video = this.gameObject.GetComponent<VideoPlayer>();
         video.clip = videos[videoId];
         rawImage = GetComponent<RawImage>();
+        StartCoroutine(GameOver());
         video.Play();
     }
 
@@ -32,5 +34,22 @@ public class DeathVideo : MonoBehaviour
         {
             SceneManager.LoadScene(mainmenu);   
         }
+        if (video.length == video.clockTime)
+        {
+            StartCoroutine(MainMenu());
+        }
+    }
+
+    IEnumerator GameOver()
+    {
+        yield return new WaitForSeconds(1f);
+        gameOver.Play();
+        StopCoroutine(GameOver());
+    }
+    IEnumerator MainMenu()
+    {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(mainmenu);
+        StopCoroutine(MainMenu());
     }
 }

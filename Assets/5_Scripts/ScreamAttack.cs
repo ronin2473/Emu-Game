@@ -40,13 +40,23 @@ public class ScreamAttack : WeaponManagement.weapon
         }
     }
     
-
+    float RandomPitch(float min, float max)
+    {
+        float z = Random.value;
+        if (z > min && z < max)
+        {
+            return z;
+        }
+        else return RandomPitch(min, max);
+    }
 
     private void OnEnable()
 
     {
         if (played)
         {
+            float pitch = RandomPitch(0.8f,1.2f);
+            attackSound.pitch = pitch;
             attackSound.Play();
         }
         played = true;
