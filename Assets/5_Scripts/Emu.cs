@@ -47,7 +47,7 @@ public class Emu : MonoBehaviour
 
         ChoosenEmu baseEmu = new ChoosenEmu(0, "Bob kangaroo the emu", 250,240,4f,0);
         ChoosenEmu alienEmu = new (1, "Paul the alien emu", 200, 200, 4f, 1);
-        ChoosenEmu ritterEmu = new (2, "Ezekiel the knight emu", 300, 300, 3.5f, 2);
+        ChoosenEmu ritterEmu = new (2, "Ezekiel the knight emu", 300, 300, 3.75f, 2);
         ChoosenEmu roadRunnerEmu = new (3, "Frederik the roadrunner emu", 250, 250, 4.5f, 3);        
         ChoosenEmu pharaoEmu = new (4, "Joshua VII the pharao emu", 300, 300, 4, 4);
         emus[0] = baseEmu;

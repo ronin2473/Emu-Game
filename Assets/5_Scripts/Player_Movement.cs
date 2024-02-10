@@ -17,9 +17,16 @@ public class Player_Movement : MonoBehaviour
     public Collider2D edgemap;  
     Gamemenu gamemenu;
 
+    public EnemySpawnerNoPooling enemywaves;
+    int currentwavenumber;
+    public TextMeshProUGUI wavecounter;
+
+    
     // Start is called before the first frame update
     void Start()
     {
+       
+
         gamemenu = FindObjectOfType<Gamemenu>();
         rb2d = GetComponent<Rigidbody2D>();
         Emu.ChoosenEmu emu = Emu.emus[charid];
@@ -28,16 +35,41 @@ public class Player_Movement : MonoBehaviour
             speed = emu.speed;
         }
         time = 0;
+        
 
         AudioManager audi = FindObjectOfType<AudioManager>();
-        audi.PlayMusic("BattleMusic");
+        
+        if (audi != null)
+        {
+            audi.PlayMusic("BattleMusic");
+        }
     }
+        
 
     // Update is called once per frame
     void Update()
     {
         time += Time.deltaTime;
-        timer.text = time.ToString();
+        
+
+        int minutes = Mathf.FloorToInt(time / 60f);
+        int seconds = Mathf.FloorToInt(time % 60f);
+
+        string formattedTime = string.Format("{0:00}:{1:00}", minutes, seconds);
+
+        timer.text = formattedTime;
+
+
+
+        currentwavenumber = enemywaves.currentWaveCount;
+        wavecounter.text = "Wave: " + currentwavenumber.ToString();
+
+
+
+
+
+
+
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
         bool isdead = GetComponent<Health>().isdead;
