@@ -21,10 +21,12 @@ public class VictoryScene : MonoBehaviour
 
     [SerializeField] string creditscene;
     public float victorydelay;
-
+    AudioSource victorysound;
     // Start is called before the first frame update
     void Start()
     {
+        victorysound = GetComponent<AudioSource>();
+        StartCoroutine(Victory());
         previousScene = SceneManager.GetActiveScene().name;
     }
 
@@ -51,7 +53,12 @@ public class VictoryScene : MonoBehaviour
         }
         
     }
-
+    IEnumerator Victory()
+    {
+        yield return new WaitForSeconds(2);
+        victorysound.Play();
+        StopCoroutine(Victory());   
+    }
     IEnumerator VictoryScenetransition()
     {
         yield return new WaitForSeconds(victorydelay);

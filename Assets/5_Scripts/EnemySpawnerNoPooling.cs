@@ -66,7 +66,7 @@ public class EnemySpawnerNoPooling : MonoBehaviour
         }
         if(currentWaveCount == waves.Count - 1 && enemiesdied == waves[currentWaveCount].waveQuota)
             {
-            SceneManager.LoadScene(win);
+            StartCoroutine(Victory());
         }
 
         spawnTimer += Time.deltaTime;
@@ -77,7 +77,11 @@ public class EnemySpawnerNoPooling : MonoBehaviour
 
         }
     }
-
+    IEnumerator Victory()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(win);
+    }
     IEnumerator BeginNextWave()
     {
         yield return new WaitForSeconds(waveInterval);
