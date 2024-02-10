@@ -34,21 +34,20 @@ public class DeathVideo : MonoBehaviour
         {
             SceneManager.LoadScene(mainmenu);   
         }
-        if (video.length == video.clockTime)
-        {
-            StartCoroutine(MainMenu());
-        }
+        
+        StartCoroutine(MainMenu());
+        
     }
 
     IEnumerator GameOver()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0f);
         gameOver.Play();
         StopCoroutine(GameOver());
     }
     IEnumerator MainMenu()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
         SceneManager.LoadScene(mainmenu);
         StopCoroutine(MainMenu());
     }
