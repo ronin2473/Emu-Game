@@ -7,39 +7,42 @@ using UnityEngine.UI;
 public class WuffyAudioStuffy : MonoBehaviour
 {
     SetAudio audio;
-    public static WuffyAudioStuffy instance;
+    //public static WuffyAudioStuffy instance;
     public Slider general;
     public Slider music;
     public Slider sfx;
     //Slider generalSlider;
     //Slider musicSlider;
     //Slider sfxSlider;
+    static float generalDeleted;
+    static float musicDeleted;
+    static float sfxDeleted;
+
 
     private void Start()
     {
         audio = FindObjectOfType<SetAudio>();
-        general.minValue = -80f;
+        general.minValue = -40f;
         general.maxValue = 20f;
-        music.minValue = -80f;
+        music.minValue = -40f;
         music.maxValue = 20f;
-        sfx.minValue = -80f;
+        sfx.minValue = -40f;
         sfx.maxValue = 20f;
-        general.value = 0f;
-        music.value = 0f;
-        sfx.value = 0f;
+        general.value = generalDeleted;
+        music.value = musicDeleted;
+        sfx.value = sfxDeleted;
+        
 
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-            //generalSlider = GameObject.Find(general.name)?.GetComponent<Slider>();
-            //musicSlider = GameObject.Find(music.name)?.GetComponent<Slider>();
-            //sfxSlider = GameObject.Find(sfx.name)?.GetComponent<Slider>();
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        //if (instance == null)
+        //{
+        //    instance = this;
+        //    DontDestroyOnLoad(gameObject);
+           
+        //}
+        //else
+        //{
+        //    Destroy(gameObject);
+        //}
 
     }
     void Update()
@@ -53,5 +56,11 @@ public class WuffyAudioStuffy : MonoBehaviour
         audio.SetSfxVolume(sfx.value);
 
 
+    }
+    void OnSceneUnload(Scene scene)
+    {
+        sfx.value = sfxDeleted;
+        music.value = musicDeleted;
+        general.value = generalDeleted;
     }
 }
