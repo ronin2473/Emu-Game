@@ -362,7 +362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6139a750fb75e544ad8a89647a67ae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOver: {fileID: 0}
+  gameOver: {fileID: 1890292708}
   mainmenu: Menu
   videos:
   - {fileID: 32900000, guid: 3e0ed1fb6d022d2428247f68a8a51b95, type: 3}
