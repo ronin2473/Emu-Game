@@ -32,6 +32,7 @@ public class Shield : WeaponManagement.weapon
             shieldinstance tmp = Instantiate(shields[0]);
             tmp.Randomr(3f);
             tmp.shieldaudio = shieldAudio;
+            tmp.speed = speed*1.25f;
             shields.Add(tmp);
             leveled2 = true;
             foreach (shieldinstance shield in shields)
@@ -45,6 +46,7 @@ public class Shield : WeaponManagement.weapon
             shieldinstance tmp = Instantiate(shields[0]);
             tmp.Randomr(4.5f);
             tmp.shieldaudio = shieldAudio;
+            tmp.speed = speed * 1.5f;
             shields.Add(tmp);
             leveled3 = true;
             foreach (shieldinstance shield in shields)
