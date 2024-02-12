@@ -14,9 +14,8 @@ public class WuffyAudioStuffy : MonoBehaviour
     //Slider generalSlider;
     //Slider musicSlider;
     //Slider sfxSlider;
-    static float generalDeleted;
-    static float musicDeleted;
-    static float sfxDeleted;
+    public AudioManager am;
+
 
 
     private void Start()
@@ -28,11 +27,11 @@ public class WuffyAudioStuffy : MonoBehaviour
         music.maxValue = 20f;
         sfx.minValue = -40f;
         sfx.maxValue = 20f;
-        general.value = generalDeleted;
-        music.value = musicDeleted;
-        sfx.value = sfxDeleted;
-        
+        general.value = PlayerPrefs.GetFloat("GeneralValue");
+        music.value = PlayerPrefs.GetFloat("MusicValue");
+        sfx.value = PlayerPrefs.GetFloat("SfxValue");
 
+        
         //if (instance == null)
         //{
         //    instance = this;
@@ -49,18 +48,21 @@ public class WuffyAudioStuffy : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Escape))
         {
-            SceneManager.LoadScene("Menu");
+            SaveSliderValue();
+            SceneManager.LoadScene("Menu");            
         }
         audio.SetMasterVolume(general.value);
         audio.SetMusicVolume(music.value);
-        audio.SetSfxVolume(sfx.value);
-
+        audio.SetSfxVolume(sfx.value);    
 
     }
-    void OnSceneUnload(Scene scene)
+
+    public void SaveSliderValue()
     {
-        sfx.value = sfxDeleted;
-        music.value = musicDeleted;
-        general.value = generalDeleted;
+        PlayerPrefs.SetFloat("GeneralValue",general.value);
+        PlayerPrefs.SetFloat("MusicValue",music.value);
+        PlayerPrefs.SetFloat("SfxValue",sfx.value);
+        PlayerPrefs.Save();
     }
+
 }

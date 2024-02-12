@@ -20,7 +20,6 @@ public class Buttons : MonoBehaviour
         Debug.Log(previousScene);
 
         AudioManager audi =  FindObjectOfType<AudioManager>();
-        audi.PlayMusic("MenuMusic");
 
     }
     public void GameQuit()

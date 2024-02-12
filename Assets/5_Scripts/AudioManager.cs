@@ -7,6 +7,10 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
 
+    public static float generalDeleted;
+    public static float musicDeleted;
+    public static float sfxDeleted;
+
     public Sound[] musicSounds;
     public AudioSource musicSource;
 
@@ -16,16 +20,13 @@ public class AudioManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            
         }
+    
         else
         {
             Destroy(gameObject);
         }
-    }
-
-    private void Start()
-    {
-        PlayMusic("MenuMusic");
     }
 
     public void PlayMusic(string name)
@@ -43,3 +44,4 @@ public class AudioManager : MonoBehaviour
         }
     }
 }
+

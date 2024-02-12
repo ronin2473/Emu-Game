@@ -1912,6 +1912,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2108416830}
   - component: {fileID: 2108416831}
+  - component: {fileID: 2108416832}
   m_Layer: 0
   m_Name: ButtonController
   m_TagString: Untagged
@@ -1948,6 +1949,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToSwapTo: CharSelect
   customCursor: {fileID: 2800000, guid: d52719705d669ab41b3219c89f52d3a1, type: 3}
+--- !u!114 &2108416832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108416828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07fc1d0ef19ea8c4a80b02c916e11f4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audio: {fileID: 0}
+  source: {fileID: 0}
+  clip: {fileID: 8300000, guid: cd95edb6463e97340b961a1988e97d6d, type: 3}
 --- !u!1 &2126551665
 GameObject:
   m_ObjectHideFlags: 0
