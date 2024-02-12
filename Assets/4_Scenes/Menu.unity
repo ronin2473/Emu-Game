@@ -1033,12 +1033,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 891452379}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 357628d322aab2f4ebef6e1e9955c5a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedbutton: {fileID: 650239624}
+  selectedbutton: {fileID: 0}
   buttons:
   - x: 0
     y: 0
@@ -2187,6 +2187,7 @@ MonoBehaviour:
   audio: {fileID: 0}
   source: {fileID: 0}
   clip: {fileID: 8300000, guid: cd95edb6463e97340b961a1988e97d6d, type: 3}
+  set: {fileID: 0}
 --- !u!1 &2126551665
 GameObject:
   m_ObjectHideFlags: 0

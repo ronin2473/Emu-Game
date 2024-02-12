@@ -6779,7 +6779,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1679383776
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7517,6 +7517,10 @@ PrefabInstance:
       propertyPath: ankhstaffSound
       value: 
       objectReference: {fileID: 1565743998}
+    - target: {fileID: 2077131962224014386, guid: 0d01e7aea5e9ebc4995c371bab41369f, type: 3}
+      propertyPath: attackCooldown
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2077131962224014389, guid: 0d01e7aea5e9ebc4995c371bab41369f, type: 3}
       propertyPath: m_RootOrder
       value: 10
