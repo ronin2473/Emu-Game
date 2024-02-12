@@ -97,6 +97,7 @@ public class ButtonTraversing : MonoBehaviour
                 PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
                 foreach (Buttonv2 v in buttons)
                 {
+                    
                     v.button.OnPointerExit(pointerEventData);
                         }
                 selectedbutton = button.button;
@@ -105,6 +106,7 @@ public class ButtonTraversing : MonoBehaviour
                 break;
             }
         }
+        
         if (Input.GetButtonDown("Submit"))
         {
             selectedbutton.onClick.Invoke();

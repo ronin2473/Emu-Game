@@ -38,16 +38,18 @@ public class EnemySpawnerNoPooling : MonoBehaviour
 
     [Header("Spawn positions")]
     public List<Transform> relativeSpawnPoints;
-
+    Health health;
     Transform player;
     public int enemiesdied = 0;
     public string win;
     public TextMeshProUGUI wavecompletetext;
     public float resettimer = 0f;
+    public SliderEqualsSlider healeffect;
     // Start is called before the first frame update
     void Start()
     {
         player = FindObjectOfType<Player_Movement>().transform;
+        health = player.GetComponent<Health>();
         CalculateWaveQuota();
         wavecompletetext.gameObject.SetActive(false);
     }
@@ -63,6 +65,15 @@ public class EnemySpawnerNoPooling : MonoBehaviour
             //Debug.Log("test");
             enemiesdied = 0;
             StartCoroutine(BeginNextWave());
+            if (currentWaveCount == (waves.Count - 1)/2) {
+                if (health.currentHealth + health.maxHealth / 4! > health.maxHealth)
+                {
+                    health.currentHealth += health.maxHealth / 4;
+                }
+                else health.currentHealth = health.maxHealth;
+                health.healthBar.SetHealth(health.currentHealth);
+                healeffect.gameObject.SetActive(true);
+            }
         }
         if(currentWaveCount == waves.Count - 1 && enemiesdied == waves[currentWaveCount].waveQuota)
             {
