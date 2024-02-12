@@ -61,7 +61,7 @@ public class Player_Movement : MonoBehaviour
 
 
 
-        currentwavenumber = enemywaves.currentWaveCount;
+        currentwavenumber = enemywaves.currentWaveCount +1;
         wavecounter.text = "Wave: " + currentwavenumber.ToString();
 
 
