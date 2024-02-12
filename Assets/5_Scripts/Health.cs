@@ -42,8 +42,16 @@ public class Health : MonoBehaviour
         
             this.GetComponent<Player_Movement>().speed = 0;
             isdead = true;
-            manager.musicSource.Stop();
-            dying.Play();
+            
+            if (manager != null)
+            {
+                manager.musicSource.Stop();
+            }
+            if (dying  != null) 
+            {
+                dying.Play();
+            }
+            
             
             foreach (WeaponManagement.weapon weapon in weaponManager.weapons)
             {

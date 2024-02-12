@@ -44,6 +44,6 @@ public class Buttons : MonoBehaviour
 
     public void GameHistory()
     {
-
+        SceneManager.LoadScene("Historypage");
     }
 }

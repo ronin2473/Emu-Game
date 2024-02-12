@@ -22,6 +22,7 @@ public class Shield : WeaponManagement.weapon
     private void Start()
     {
         shields[0].Randomr(1.5f);
+        shields[0].SetSpeed(speed);
     }
 
     // Update is called once per frame
@@ -32,6 +33,7 @@ public class Shield : WeaponManagement.weapon
             shieldinstance tmp = Instantiate(shields[0]);
             tmp.Randomr(3f);
             tmp.shieldaudio = shieldAudio;
+            tmp.SetSpeed(speed * 0.75f);
             shields.Add(tmp);
             leveled2 = true;
             foreach (shieldinstance shield in shields)
@@ -45,6 +47,7 @@ public class Shield : WeaponManagement.weapon
             shieldinstance tmp = Instantiate(shields[0]);
             tmp.Randomr(4.5f);
             tmp.shieldaudio = shieldAudio;
+            tmp.SetSpeed(speed*0.5f);
             shields.Add(tmp);
             leveled3 = true;
             foreach (shieldinstance shield in shields)
@@ -56,7 +59,6 @@ public class Shield : WeaponManagement.weapon
         {
             shield.damage = damage;
             shield.player = player.transform;
-            shield.speed = speed;
             shield.Movearound();
         }
     }

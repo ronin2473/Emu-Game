@@ -12,7 +12,10 @@ public class shieldinstance : MonoBehaviour
     public AudioSource shieldaudio;
 
     
-
+    public void SetSpeed(float speed)
+    {
+        this.speed = speed;
+    }
     public void Randomr(float radius)
     {
         r = radius;

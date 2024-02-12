@@ -77,7 +77,11 @@ public class EnemyStats : MonoBehaviour
                 //Destroy(gameObject);
 
             }
-        audioSource.Play();
+        if (audioSource != null)
+        {
+
+            audioSource.Play();
+        }
 
     }
 
