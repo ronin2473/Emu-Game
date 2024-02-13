@@ -9,7 +9,7 @@ public class Gamemenu : MonoBehaviour
     [SerializeField] GameObject button2;
     [SerializeField] Texture2D customCursor;
     bool paused = false;
-    
+    public ButtonTraversing buttontravel;
     private void Start()
     {
         Cursor.SetCursor(customCursor, Vector2.zero, CursorMode.Auto);
@@ -18,13 +18,18 @@ public class Gamemenu : MonoBehaviour
     }
     public void Menu()
     {
+        
         paused = !paused;
+        buttontravel.enabled = paused;
         if (paused)
         {
+            buttontravel.x = 2;
+            buttontravel.y = 0;
             Time.timeScale = 0;
         }
         else
         {
+            buttontravel.UnHover();
             Time.timeScale = 1;
         }
         button1.SetActive(!(button1.activeSelf));

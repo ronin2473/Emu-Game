@@ -139,4 +139,16 @@ public class ButtonTraversing : MonoBehaviour
             }
         }
     }
+
+
+
+    public void UnHover()
+    {
+        PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
+        foreach (Buttonv2 v in buttons)
+        {
+
+            v.button.OnPointerExit(pointerEventData);
+        }
+    }
 }
