@@ -10,6 +10,7 @@ public class SliderEqualsSlider : MonoBehaviour
     public float step;
     public RectTransform heart;
     public RectTransform arrow;
+    public AudioSource blob;
     // Start is called before the first frame update
 
     private void Start()
@@ -18,6 +19,11 @@ public class SliderEqualsSlider : MonoBehaviour
         arrow.sizeDelta = new Vector2(heart.sizeDelta.x, 0);
     }
     // Update is called once per frame
+
+    private void OnEnable()
+    {
+        blob.Play();
+    }
     void Update()
     {
         
